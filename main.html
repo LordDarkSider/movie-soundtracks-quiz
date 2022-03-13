@@ -1,0 +1,467 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="data.json"></script>
+<html>
+	<head>
+	<title>Movie Soundtracks Quiz</title>
+    <link rel="icon" href="images/icon.ico">
+    <style type="text/css">
+        
+        @font-face {
+	        font-family: "Cinema";
+	        src: url('cinema_st.TTF');
+        }
+
+        body {
+            background: url("images/DJ font.jpg") no-repeat center fixed;
+            background-size: cover;
+            white-space: nowrap;
+            margin: 0;
+            text-align: center;
+            user-select: none;
+        }
+
+        h1{display: block; font-family: 'Cinema'; color:gold; font-size: 3em; margin-bottom: 0em; margin-top: 0em;}
+
+        .button {
+            display:block;
+            margin: auto;
+            margin-block: 1em;
+            border: 0;
+            line-height: 2.5;
+            padding: 0 20px;
+            font-size: 1rem;
+            text-align: center;
+            color: #fff;
+            text-shadow: 1px 1px 1px #000;
+            border-radius: 10px;
+            background-color: rgba(220, 0, 0, 1);
+            background-image: linear-gradient(to top left,
+                                            rgba(0, 0, 0, .2),
+                                            rgba(0, 0, 0, .2) 30%,
+                                            rgba(0, 0, 0, 0));
+            box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                        inset -2px -2px 3px rgba(0, 0, 0, .6);
+        }
+
+        .button:hover {
+            background-color: rgba(255, 0, 0, 1);
+        }
+
+        .button:active {
+            box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                        inset 2px 2px 3px rgba(0, 0, 0, .6);
+        }
+        
+        #infobulle {margin-top: 2%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 14pt; font-family: 'Calibri'; font-weight: bold;}
+        
+        #langconfig {display:inline-flex; margin-top:0.5em; margin-left: 90%;}
+        #flag {display:inline; margin: auto;}
+        #selectlang {display:inline; margin: auto; background-color:rgba(220, 0, 0, 1),}
+
+        .central{display: inline-block; margin-top: 2em;}
+        #central_left{vertical-align: top; margin: 4em; width: 10%}
+        #central_right{vertical-align: top; margin: 4em; width: 10%}
+        
+        #progression {
+            display: block;
+            padding: 0.5em;
+            font-size: 1.5em;
+            width: fit-content;
+            margin: auto;
+            color: #ffff;
+            border-radius: 10px;
+            background-color: DarkBlue;
+            margin-bottom: 1.5em;
+        }
+
+        #score_label {
+            display: block;
+            padding: 0.5em;
+            font-size: 1.5em;
+            width: fit-content;
+            margin: auto;
+            color: #ffff;
+            border-radius: 10px;
+            background-color: goldenrod;
+            margin-bottom: 2em;
+        }
+
+        #timer {
+            display: block;
+            padding: 0.5em;
+            font-size: 1.5em;
+            width: fit-content;
+            margin: auto;
+            color: #ffff;
+            border-radius: 10px;
+            background-color: green;
+            margin-bottom: 2em;
+        }
+
+        #poster{display: block; height: 22.5em; margin: auto;}
+        #link{display: block;margin-bottom: 2em;}
+        #next_button{display: block;  margin: auto; margin-bottom: 2em;}
+
+        #bloc_entry {margin-top: 2.5em;}
+        #skip_button{margin-left: 1em;}
+        #bloc_result {margin-top: 2.5em;}
+        #solution{display:block; font-size: 20pt; font-family: 'Verdana'; font-weight: bold;}
+
+    </style>
+	</head>
+	
+	<body>
+
+    <div id="main">
+    
+        <div id="langconfig">    
+            <img id="flag" src="flags/english.png">
+            <select id="selectlang" data-width="fit" onChange="change_language()">
+                <option value="EN" >English</option>
+                <option value="FR" >Français</option>
+                <option value="ES" >Español</option>
+                <option value="DE" >Deutsch</option>
+            </select>
+        </div>
+    
+        <h1 id="titre_quiz">Movie Soundtracks Quiz</h1>
+
+        <div id="menu">
+
+            <textarea id="infobulle" cols="80" rows="4"></textarea>
+            
+            <div class='config' id="config1">
+                <button class="button" id="mcq_choice" onmouseover="infobulle_show(0)" onmouseout="infobulle_hide()" onclick="change_mode('mcq')" >MCQ</button>
+                <button class="button" id="normal_choice" onmouseover="infobulle_show(1)" onmouseout="infobulle_hide()" onclick="change_mode('normal')" >Normal</button>
+                <button class="button" id="time_choice" onmouseover="infobulle_show(2)" onmouseout="infobulle_hide()" onclick="change_mode('time')" >Time trial</button>
+            </div>
+            
+            <div class='config' id="config2">
+                <button class="button" id="play_button" onclick="play()" >PLAY</button>
+                <button class="button" id="back_button" onclick="back()" >BACK</button>
+            </div>
+
+        </div>
+    
+        <div id="bloc_game">
+
+            
+            <div class="central" id="central_left">
+                <label id='progression'></label>
+                <label id='score_label'></label>
+            </div>
+            
+            <div class="central" id="central_middle">
+                <img id="poster" src="" draggable="false" oncontextmenu="return false">
+            </div>
+
+            <div class="central" id="central_right">
+                <label id='timer'></label>
+                <a id='link' href="" target="_blank"><img src='images/ytb.png' style="width: 2em;"> </a>
+                <button id="next_button" onclick="next()" >NEXT</button>
+            </div>
+
+            
+            <div id="bloc_entry">
+                <input type="text" id="reponse_entry" name="reponse_entry" size="30" placeholder="What movie is this music from ?" list=datalist>
+                <datalist id="datalist"></datalist>
+                <button id="valide_button" onclick="verification()" >OK</button>
+                <button id="skip_button" onclick="result(num,'incorrect')" >SKIP</button>
+            </div>
+
+            <div id="bloc_results">
+                <p id="solution">TEST</p>
+            </div>
+            
+        </div>
+
+    </div>
+    
+    <script>
+        
+        let config_language = new Map([
+            ['flagsrc', new Map([ ['EN','flags/english.png'],['FR','flags/francais.png'],['ES','flags/espanol.png'],['DE','flags/deutsch.png'] ])],
+            ['buttons', new Map([ ['EN',['MCQ','Normal','Time trial','PLAY','BACK','SKIP','NEXT']],['FR',['QCM','Normal','Contre-la-montre','JOUER','RETOUR','PASSER','SUIVANT']],['ES',['Multiopción','Normal','Contrarreloj','JUGAR','REGRESO','SALTAR','PROXIMA']],['DE',['MultipleChoice','Normal','Zeitfahren','SPIELEN','RUCKKEHR','UBERSPRINGEN','NACHSTE']] ])],
+            ['infobulle', new Map([ 
+                ['EN',["• 20 random movie soundtrack 30s clips\n• 4 answers proposed, only 1 correct\n• 45s max per question\n• 100pts per correct answer, -25pts per incorrect answer", "• 15 random movie soundtrack 30s clips\n• answer to write in the autocomplete field\n• 1min15 max per question\n• 400 to 100pts per correct answer depending on the time used", "• Unlimited number of soundtrack clips\n• 5min granted\n• 100pts per correct answer, -25pts per wrong answer or no answer"]],
+                ['FR',["• 20 extraits de 30s de bande sonore de films aléatoires\n• 4 réponses proposées, 1 seule correcte\n• 45s max par question\n• 100pts par bonne réponse, -25pts par mauvaise réponse", "• 15 extraits de 30s de bande sonore de films aléatoires\n• réponse à écrire dans le champ de saisie semi-automatique\n• 1min15 max par question\n• 400 à 100pts par bonne réponse selon le temps utilisé", "• Nombre d'extraits de bande sonore illimité\n• 5min accordée\n• 100pts par bonne réponse, -25pts par mauvaise réponse ou abscence de réponse"]],
+                ['ES',["• 20 clips aleatorios de bandas sonoras de películas de 30s\n• 4 respuestas propuestas, solo 1 correcta\n• 45s como máximo por pregunta\n• 100pts por respuesta correcta, -25pts por respuesta incorrecta", "• 15 clips aleatorios de bandas sonoras de películas de 30s\n• respuesta para escribir en el campo de autocompletar\n• 1min15 como máximo por pregunta\n• 400 a 100pts por respuesta correcta dependiendo del tiempo empleado", "• Número ilimitado de clips de bandas sonoras\n• 5min concedidos\n• 100pts por respuesta correcta, -25pts por respuesta incorrecta o sin respuesta"]],
+                ['DE',["• 20 zufällige 30-Sekunden-Film-Soundtrack-Clips\n• 4 Antworten vorgeschlagen, nur 1 richtig\n• 45 Sekunden max. pro Frage\n• 100 Punkte pro richtige Antwort, -25 Punkte pro falsche Antwort", "• 15 zufällige 30-Sekunden-Film-Soundtrack-Clips\n• Antwort in das Autocomplete-Feld schreiben\n• 1min15 max. pro Frage\n• 400 bis 100 Punkte pro richtiger Antwort je nach Zeitaufwand", "• Unbegrenzte Anzahl von Soundtrack-Clips\n• 5min gewährt\n• 100 Punkte pro richtige Antwort, -25 Punkte pro falsche Antwort oder keine Antwort"]] 
+            ])],
+            ['placeholder', new Map([ ['EN','What movie is this music from?'],['FR','De quel film provient cette musique ?'],['ES','¿De qué película es esta música?'],['DE','Aus welchem ​​Film stammt diese Musik?'] ])],
+            ['ytb', new Map([ ['EN','Listen more on YouTube'],['FR',"Ecouter plus sur YouTube"],['ES','Escucha más en YouTube'],['DE','Hören Sie mehr auf YouTube'] ])],
+        ]);
+
+
+        let data = new Map([
+            [1, new Map([ ['id','vfrQk5IPloGg1v9Rzbh2Eg3VGyM'], ['composer','Jerry Goldsmith'], ['titles', new Map([['EN','Alien'],['FR','Alien'],['ES','Alien'],['DE','Alien']]) ], ['ytblink','OLAK5uy_nJvXT8-seY9obznMSHM_2-C0NemdkIR98'] ])],
+            [2, new Map([ ['id','jRXYjXNq0Cs2TcJjLkki24MLp7u'], ['composer','James Horner'], ['titles', new Map([['EN','Avatar'],['FR','Avatar'],['ES','Avatar'],['DE','Avatar']]) ], ['ytblink','OLAK5uy_npjmcz8kXpBTOzUsq7AwlOo2-RYexWtho'] ])],
+            [3, new Map([ ['id','RYMX2wcKCBAr24UyPD7xwmjaTn'], ['composer','Alan Silvestri'], ['titles', new Map([['EN','Avengers'],['FR','Avengers'],['ES','Avengers'],['DE','Avengers']]) ], ['ytblink','OLAK5uy_k-0D-zECaOFqfdotpRFVVMO9LbQOOjcFM'] ])],
+            [4, new Map([ ['id','an0nD6uq6byfxXCfk6lQBzdL2J1'], ['composer','John Williams'], ['titles', new Map([['EN','E.T. the Extra-Terrestrial'],['FR',"E.T., l'extra-terrestre"],['ES','E.T., el extraterrestre'],['DE','E.T. – Der Außerirdische']]) ], ['ytblink','OLAK5uy_m8lH4cPGpgekNff5GTg7AeQuMi86FPVo0'] ])],
+            [5, new Map([ ['id','gqY0ITBgT7A82poL9jv851qdnIb'], ['composer','Brian Wayne Transeau'], ['titles', new Map([['EN','Fast & Furious'],['FR','Fast and Furious'],['ES','Rápidos y furiosos'],['DE','The Fast and the Furious']]) ], ['ytblink','OLAK5uy_ncRJJEKvbWjv9wvenMdvjx2i_NE4SipWo'] ])],
+            [6, new Map([ ['id','ehGpN04mLJIrSnxcZBMvHeG0eDc'], ['composer','Hans Zimmer & Lisa Gerrard'], ['titles', new Map([['EN','Gladiator'],['FR','Gladiator'],['ES','Gladiator'],['DE','Gladiator']]) ], ['ytblink','OLAK5uy_nJyRUgivXJk6-Sm4seo0TVFaWvCA6WGl0'] ])],
+            [7, new Map([ ['id','72Y1X9pMSjXQ7mKB6pBEoMhL0OQ'], ['composer','Jerry Goldsmith'], ['titles', new Map([['EN','Gremlins'],['FR','Gremlins'],['ES','Gremlins'],['DE','Gremlins – Kleine Monster']]) ], ['ytblink','OLAK5uy_kF5xassarMIy0QISea4_ojqSsROcFE5xo'] ])],
+            [8, new Map([ ['id','wuMc08IPKEatf9rnMNXvIDxqP4W'], ['composer','John Williams'], ['titles', new Map([['EN','Harry Potter'],['FR','Harry Potter'],['ES','Harry Potter'],['DE','Harry Potter']]) ], ['ytblink','PLq8B1aGK38D6vTQIoTt1M9APRKLZ6tB5R'] ])],
+            [9, new Map([ ['id','iQK0pkTQC60XR3Zlu2pp8kujoqW'], ['composer','James Newton Howard'], ['titles', new Map([['EN','The Hunger Games'],['FR','Hunger Games'],['ES','Los juegos del hambre'],['DE','Die Tribute von Panem']]) ], ['ytblink','OLAK5uy_mlVN24AQUpJ3qgdjZcTw1sE_2cDgxQSP0'] ])],
+            [10, new Map([ ['id','ceG9VzoRAVGwivFU403Wc3AHRys'], ['composer','John Williams'], ['titles', new Map([['EN','Indiana Jones'],['FR','Indiana Jones'],['ES','Indiana Jones'],['DE','Indiana Jones']]) ], ['ytblink','PL7Qr_f1heeNCPYx8CIPpgS3r3zmdsdoSr'] ])],
+            [11, new Map([ ['id','78lPtwv72eTNqFW9COBYI0dWDJa'], ['composer','Ramin Djawadi'], ['titles', new Map([['EN','Iron Man'],['FR','Iron Man'],['ES','Iron Man'],['DE','Iron Man']]) ], ['ytblink','PLA4ukW0F1j6WN4J679FszDpJun3tpI4jX'] ])],
+            [12, new Map([ ['id','oU7Oq2kFAAlGqbU4VoAE36g4hoI'], ['composer','John Williams'], ['titles', new Map([['EN','Jurassic Park'],['FR','Jurassic Park'],['ES','Parque Jurásico'],['DE','Jurassic Park']]) ], ['ytblink','OLAK5uy_n9THIcdEFMWJAlH5MKObqoAjnHvPRPK-o'] ])],
+            [13, new Map([ ['id','w9ph5cUfGbw41WXt7yuXsWeN2TV'], ['composer','Monty Norman'], ['titles', new Map([['EN','James Bond'],['FR','James Bond'],['ES','James Bond'],['DE','James Bond']]) ], ['ytblink','PLY3KW-yaz8cV89ymMN61nPDQeHIHCfAYC'] ])],
+            [14, new Map([ ['id','uY9k8t2FQkMj60obnAnsPKLxHCE'], ['composer','Alan Silvestri'], ['titles', new Map([['EN','Night at the Museum'],['FR','La Nuit au musée'],['ES','Noche en el museo'],['DE','Nachts im Museum']]) ], ['ytblink','OLAK5uy_nnld_TrJzLyv4eF8wM1COxvuOn1glnB1I'] ])],
+            [15, new Map([ ['id','dKAMpwWht6mVcXAuoX3nNtLN4PA'], ['composer','Danny Elfman'], ['titles', new Map([['EN','Planet of the Apes'],['FR','La Planète des singes'],['ES','El planeta de los simios'],['DE','Planet der Affen']]) ], ['ytblink','OLAK5uy_mc1_rSAFd1ZlVm_CMHgOPrWYmbBhr5oHc'] ])],
+            [16, new Map([ ['id','kzJip9vndXYSKQHCgekrgqbnUrA'], ['composer','Harry Gregson-Williams'], ['titles', new Map([['EN','The Chronicles of Narnia'],['FR','Le Monde de Narnia'],['ES','Las Crónicas de Narnia'],['DE','Die Chroniken von Narnia']]) ], ['ytblink','PL18vVEBOfpWaRmD4GsixBxVinQzPwFvfv'] ])],
+            [17, new Map([ ['id','6oom5QYQ2yQTMJIbnvbkBL9cHo6'], ['composer','Howard Shore'], ['titles', new Map([['EN','The Lord of the Rings'],['FR','Le Seigneur des anneaux'],['ES','El Señor de los Anillos'],['DE','Der Herr der Ringe']]) ], ['ytblink','OLAK5uy_kuXKMo2ku9Zse-t8vyv4IvM8N_bZM5w7k'] ])],
+            [18, new Map([ ['id','s2xcqSFfT6F7ZXHxowjxfG0yisT'], ['composer','John Williams'], ['titles', new Map([['EN','Jaws'],['FR','Les Dents de la mer'],['ES','Tiburón'],['DE','Der weiße Hai']]) ], ['ytblink','OLAK5uy_knTCF7Agg3xAnZ4xzhdDsgq2OvaMzYBrI'] ])],
+            [19, new Map([ ['id','lirMXnE7NoVLDr3qeqf48fR1mk4'], ['composer','Danny Elfman'], ['titles', new Map([['EN','Mission: Impossible'],['FR','Mission impossible'],['ES','Misión imposible'],['DE','Mission: Impossible']]) ], ['ytblink','PLohYzz4btpaRW-388_vBPVH5aGxiAFRSz'] ])],
+            [20, new Map([ ['id','z8onk7LV9Mmw6zKz4hT6pzzvmvl'], ['composer','Hans Zimmer'], ['titles', new Map([['EN','Pirates of the Caribbean'],['FR','Pirates des Caraïbes'],['ES','Piratas del Caribe'],['DE','Fluch der Karibik']]) ], ['ytblink','OLAK5uy_ns_PbaVZMV6xQgFh-vEWeIlUvCGT_4FlA'] ])],
+            [21, new Map([ ['id','a9sa6ERZCpplbPEO7OMWE763CLD'], ['composer','Jerry Goldsmith'], ['titles', new Map([['EN','Rambo'],['FR','Rambo'],['ES','Rambo'],['DE','Rambo']]) ], ['ytblink','OLAK5uy_k7SfNusz4WHfzt0oOs3fc6-cl9G8h6tTc'] ])],
+            [22, new Map([ ['id','fNOH9f1aA7XRTzl1sAOx9iF553Q'], ['composer','Alan Silvestri'], ['titles', new Map([['EN','Back to the Future'],['FR','Retour vers le futur'],['ES','Regreso al futuro'],['DE','Zurück in die Zukunft']]) ], ['ytblink','PLVxK197E5MdcK7L0Grb09BlUx-WV3UaVK'] ])],
+            [23, new Map([ ['id','gh4cZbhZxyTbgxQPxD0dOudNPTn'], ['composer','Danny Elfman'], ['titles', new Map([['EN','Spider-Man'],['FR','Spider-Man'],['ES','Spider-Man'],['DE','Spider-Man']]) ], ['ytblink','OLAK5uy_ncvSYeaniDKdulooRxEQTc67JurwFg6M8'] ])],
+            [24, new Map([ ['id','6FfCtAuVAW8XJjZ7eWeLibRLWTw'], ['composer','John Williams'], ['titles', new Map([['EN','Star Wars'],['FR','Star Wars'],['ES','Star Wars'],['DE','Star Wars']]) ], ['ytblink','OLAK5uy_mIcroFOIxZqZKyjqU-s7TtWzCsk7Gd44M'] ])],
+            [25, new Map([ ['id','d7px1FQxW4tngdACVRsCSaZq0Xl'], ['composer','John Williams'], ['titles', new Map([['EN','Superman'],['FR','Superman'],['ES','Superman'],['DE','Superman']]) ], ['ytblink','OLAK5uy_ky-_zVkgxxhQ7fErtjxEmCU4NjNI_SVgM'] ])],
+            [26, new Map([ ['id','egBxj3ude84theXc3cLbBHrWOkQ'], ['composer','Akhenaton'], ['titles', new Map([['EN','Taxi'],['FR','Taxi'],['ES','Taxi'],['DE','Taxi']]) ], ['ytblink','PLVYyjhfI93m3cuq6FT27_rcC6X8qk2snY'] ])],
+            [27, new Map([ ['id','qvktm0BHcnmDpul4Hz01GIazWPr'], ['composer','Brad Fiedel'], ['titles', new Map([['EN','The Terminator'],['FR','Terminator'],['ES','Terminator'],['DE','Terminator']]) ], ['ytblink','OLAK5uy_lpJZLReSXjqpy35TmWhPjXUl-ALN8eqrQ'] ])],
+            [28, new Map([ ['id','qJ2tW6WMUDux911r6m7haRef0WH'], ['composer','Hans Zimmer & James Newton Howard'], ['titles', new Map([['EN','The Dark Knight'],['FR','The Dark Knight'],['ES','The Dark Knight'],['DE','The Dark Knight']]) ], ['ytblink','PLim3m5NnkYFcopKx6tXrl8k5ELBO-kt4X'] ])],
+            [29, new Map([ ['id','9xjZS2rlVxm8SFx8kPC3aIGCOYQ'], ['composer','James Horner'], ['titles', new Map([['EN','Titanic'],['FR','Titanic'],['ES','Titanic'],['DE','Titanic']]) ], ['ytblink','PL6vwnon3sINpVYtsX7iOV8DREbzDrOJE-'] ])],
+            [30, new Map([ ['id','6eehp9I54syN3x753XMqjKz8M3F'], ['composer','Steve Jablonsky'], ['titles', new Map([['EN','Transformers'],['FR','Transformers'],['ES','Transformers'],['DE','Transformers']]) ], ['ytblink','OLAK5uy_lj60uIRGl9qbpHFsh72wG7wAxW6kZQnls'] ])],
+            [31, new Map([ ['id','ypiv2HEiNftzrg9ovDCFv16Q6Ti'], ['composer','Michael Kamen'], ['titles', new Map([['EN','X-Men'],['FR','X-Men'],['ES','X-Men'],['DE','X-Men']]) ], ['ytblink','PLim3m5NnkYFe_qGDCePyTmTanrGNLeytx'] ])],
+        ]);
+
+        var mode = '';
+        var x = 0;
+        var nb_movies = 0;
+        var num = 0;
+        var done = [];
+        var suggestions = [];
+        var musique = new Audio();
+        var score = 0;
+        var out = 0;
+        var t = 0;
+        //var ttrial_out = setTimeout(timeout, 300000);
+
+        let selectlang = document.getElementById('selectlang');
+        let flag = document.getElementById('flag');
+        let bloc_menu = document.getElementById('menu');
+        let infobulle = document.getElementById('infobulle');
+        let bloc_config1 = document.getElementById('config1');
+        let mcq_choice = document.getElementById('mcq_choice');
+        let normal_choice = document.getElementById('normal_choice');
+        let time_choice = document.getElementById('time_choice');
+        let bloc_config2 = document.getElementById('config2');
+        let play_button = document.getElementById('play_button');
+        let back_button = document.getElementById('back_button');
+        let bloc_game = document.getElementById('bloc_game');
+        let bloc_entry = document.getElementById('bloc_entry');
+        var input = document.getElementById("reponse_entry");
+        let datalist = document.getElementById("datalist");
+        let valide_button = document.getElementById("valide_button");
+        let skip_button = document.getElementById("skip_button");
+        let bloc_results = document.getElementById('bloc_results');
+        let solution = document.getElementById('solution');
+        let link = document.getElementById('link');
+        let next_button = document.getElementById("next_button");
+        let poster = document.getElementById('poster');
+        let progression = document.getElementById('progression');
+        let score_label = document.getElementById('score_label');
+        let timer = document.getElementById('timer');
+
+
+        function change_language(){
+            var language = selectlang.value;
+            flag.src = config_language.get('flagsrc').get(language);
+            mcq_choice.innerHTML = config_language.get('buttons').get(language)[0];
+            normal_choice.innerHTML = config_language.get('buttons').get(language)[1];
+            time_choice.innerHTML = config_language.get('buttons').get(language)[2];
+            play_button.innerHTML = config_language.get('buttons').get(language)[3];
+            back_button.innerHTML = config_language.get('buttons').get(language)[4];
+            skip_button.innerHTML = config_language.get('buttons').get(language)[5];
+            next_button.innerHTML = config_language.get('buttons').get(language)[6];
+            input.placeholder = config_language.get('placeholder').get(language);
+            if (bloc_game.style.display=='block'){suggestions_reload(language);};
+        };
+
+        function suggestions_reload(language){
+            suggestions = [];
+            for(var i = 1; i < data.size+1; i++){suggestions.push(data.get(i).get('titles').get(language))};
+        };
+
+        function infobulle_show(b){
+            var language = selectlang.value;
+            infobulle.value = config_language.get('infobulle').get(language)[b];
+        };
+
+        function infobulle_hide(){
+            if (bloc_config1.style.display=="block") {infobulle.value = "";}
+        };
+
+        function change_mode(m){
+            mode = m;
+            bloc_config1.style.display = "none";
+            bloc_config2.style.display = "block";
+        };
+
+        function back(){
+            bloc_config1.style.display = "block";
+            bloc_config2.style.display = "none";
+        };
+
+        function play(){
+            bloc_menu.style.display = "none";
+            bloc_game.style.display = "block";
+            timer.style.display='none';
+            var language = selectlang.value;
+            score = 0;
+            score_label.innerHTML = ('Score: '+String(score));
+            input.placeholder = config_language.get('placeholder').get(language);
+            suggestions_reload(language);
+            
+            if (mode=='mcq'){nb_movies=20} else if (mode=='normal'){nb_movies=15} else {return time_trial()};
+            done = [];
+
+            num = select_alea();
+            round(num);
+        };
+
+        function next(){
+            musique.pause();
+            datalist.options= Array([]); //remove all options in datalist
+            if(done.length == nb_movies){return alert('finish')};
+            num = select_alea();
+            setTimeout(function(){round(num)} ,500);
+        };
+
+        function round(num){
+            bloc_entry.style.display = "block";
+            bloc_results.style.display = "none";
+            next_button.style.display='none';
+            link.style.display='none';
+            valide_button.disabled = true;
+            
+            id = data.get(num).get('id')
+            composer = data.get(num).get('composer')
+            poster.style.filter = 'blur(1.5em)';
+            poster.src = ('https://www.themoviedb.org/t/p/w600_and_h900_bestv2/'+ data.get(num).get('id') +'.jpg');
+            progression.innerHTML = ('n° '+String(done.length)+'/'+String(nb_movies));
+            
+            musique = new Audio('themes/'+id+'.mp3');
+            musique.loop=true;
+            musique.play();
+
+            input.focus()
+            
+            if (mode=='mcq'){x=45} else if (mode=='normal'){x=75};
+            out = setTimeout(timeout, x*1000);
+            timer_change();
+            t = setInterval(timer_change, 1000);
+        };
+
+        function verification(){
+            var reponse = input.value.toLowerCase();
+            var movie = Array.from(data.get(num).get('titles').values());
+            for(var i = 0; i < movie.length; i++){if(reponse==movie[i].toLowerCase()){return result(num,'correct')}}
+            result(num,'incorrect');
+        };
+
+        function result(num, etat){
+            clearTimeout(out);
+            clearInterval(t);
+            timer.style.display='none';
+            next_button.style.display='block';
+            link.style.display='block';
+            
+            musique.loop=false;
+            bloc_entry.style.display = "none";
+            bloc_results.style.display = "block";
+            poster.style.filter = 'blur(0em)';
+            input.value = '';
+            
+            if(etat=='correct'){var color = 'green'; var ico = 'images/correct.png'; if (mode=='normal'){score+= (x*4)+100 } else{score+= 100}}
+            else if (etat=='incorrect'){var color = 'red'; var ico = 'images/incorrect.png';};
+            
+            var language = selectlang.value;
+            var sol = data.get(num).get('titles').get(language);
+            var composer = data.get(num).get('composer');
+            
+            solution.innerHTML = ("<img src='"+ico+"'> "+sol+' ('+composer+')');
+            score_label.innerHTML = ('Score: '+String(score));
+            solution.style.color = color;
+            link.href= 'https://www.youtube.com/playlist?list=' + data.get(num).get('ytblink');
+            next_button.innerHTML = config_language.get('buttons').get(language)[6];
+        };
+
+        function time_trial(){
+
+        };
+
+        function select_alea(){
+            var n = Math.floor(Math.random()*data.size +1);
+            while(done.indexOf(n)>-1){n = Math.floor(Math.random()*data.size +1)};
+            done.push(n);
+            return n
+        };
+
+        function timeout(){
+            result(num,'incorrect');
+        };
+
+        function timer_change(){
+            timer.style.display='inline-block';
+            m= String(~~(x/60));
+            s= String((x%60));
+            if(s.length==1){s=('0'+s)};
+            timer.innerHTML = (String(m)+' : '+String(s));
+            if(x>30){c='green'} else if(x>10){c='orange'} else{c='red'};
+            timer.style.backgroundColor = c;
+            x=x-1;
+            var c='green'
+        }
+
+
+        //autocomplete input algorithme
+        input.onkeyup = function(){
+        value = input.value.toLowerCase();
+        if (value.length > 0){
+            valide_button.disabled = false;
+            var options = '';
+            var sup = [];
+            var suggestions_copy = suggestions.slice();
+            var o=0;
+            for(var i = 0; i < suggestions.length; i++){
+                m=suggestions[i].toLowerCase();
+                c=value.length;
+                if(m.slice(0,c)==value){options += '<option value="' + m + '" />'; suggestions_copy.splice(i,1); o+=1}
+                else if(m.indexOf(value)>-1){sup.push(m)};
+                if(o>4){return datalist.innerHTML = options};
+            };
+            for(var i = 0; i < sup.length; i++){
+                m=sup[i];
+                options += '<option value="' + m + '" />';
+                o+=1
+                if(o>4){return datalist.innerHTML = options};
+            };
+            return datalist.innerHTML = options
+            
+        }
+        else {valide_button.disabled = true;};
+        };
+
+
+        //touches raccourcis
+        addEventListener("keyup", function(event){
+            if (event.keyCode === 13 & input.value.length > 0) {verification();}
+        });
+        addEventListener("keyup", function(event){
+            if ((event.keyCode === 39 || event.keyCode === 32) & bloc_results.style.display == "block") {next();}
+        });
+
+
+        bloc_menu.style.display = "block";
+        bloc_config1.style.display = "block";
+        bloc_config2.style.display = "none";
+        bloc_game.style.display = "none";
+        
+    </script>
+	
+    </body>
+</html>
