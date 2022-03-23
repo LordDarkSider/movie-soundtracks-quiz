@@ -1,0 +1,227 @@
+@font-face {
+    font-family: "Cinema";
+    src: url('../fonts/cinema_st.TTF');
+}
+
+body {
+    background: url("../images/DJ font.jpg") no-repeat center fixed;
+    background-size: cover;
+    white-space: nowrap;
+    margin: 0;
+    text-align: center;
+    user-select: none;
+    width:100%;
+}
+
+h1{display: block; font-family: 'Cinema'; color:gold; font-size: 3em; margin-bottom: 0em; margin-top: 0em;}
+
+.button {
+    display:block;
+    margin: auto;
+    margin-block: 1em;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.button:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.button2 {
+    display:block;
+    margin: auto;
+    margin-block: 2em;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(0, 150, 0, 1);
+    background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.button2:hover {
+    background-color: rgba(0, 180, 0, 1);
+}
+
+.button2:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+#infobulle {margin-top: 2%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 14pt; font-family: 'Calibri'; font-weight: bold;}
+
+#langconfig {display:inline; margin-top:0.5em; margin-left: 85%;}
+#credits {display:inline; margin-right: 1em; text-decoration:none; color:red; font-family: 'Calibri'; font-weight: bold; font-size: 14pt;}
+#credits:hover {color:darkred;}
+#flag {display:inline; margin: auto;}
+#selectlang {display:inline; margin: auto;}
+#home {display:inline-block; margin: auto; margin-top:0.5em;}
+
+.central{display: inline-block; margin-top: 2em;}
+#central_left{vertical-align: top; margin: 4em; width: 10%}
+#central_right{vertical-align: top; margin: 4em; width: 10%}
+
+#progression {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: fit-content;
+    margin: auto;
+    color: #ffff;
+    border-radius: 10px;
+    background-color: DarkBlue;
+    margin-bottom: 1.5em;
+}
+
+.score {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: fit-content;
+    margin: auto;
+    color: #ffff;
+    border-radius: 10px;
+    background-color: goldenrod;
+    margin-bottom: 2em;
+}
+
+#timer {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: fit-content;
+    margin: auto;
+    color: #ffff;
+    border-radius: 10px;
+    background-color: green;
+    margin-bottom: 2em;
+}
+
+#poster{display: block; height: 22.5em; margin: auto;}
+#link{display: block;margin-bottom: 2em;}
+#next_button{display: block;  margin: auto; margin-bottom: 2em;}
+#skip_button{display: block;  margin: auto; margin-bottom: 2em;}
+
+#bloc_entry {margin-top: 2.5em;}
+#bloc_result {margin-top: 2.5em;}
+#bloc_end {margin-top: 5em;}
+#solution{display:block; font-size: 20pt; font-family: 'Verdana'; font-weight: bold;}
+
+
+
+@media (max-width: 640px) {
+	* {
+		box-sizing: border-box;
+	}
+	
+	/* passer body (et tous les éléments de largeur fixe) en largeur automatique */
+
+	body {
+		width: auto;
+		margin: 0;
+		padding: 0;
+	}
+	
+	/* fixer une largeur maximale de 100% aux éléments potentiellement problématiques */
+
+	img,
+	table,
+	td,
+	blockquote,
+	code,
+	pre,
+	textarea,
+	input,
+	iframe,
+	object,
+	embed,
+	video {
+		max-width: 100%;
+	}
+	
+	/* conserver le ratio des images */
+
+	img {
+		height: auto;
+	}
+	
+	/* gestion des mots longs */
+
+	textarea,
+	table,
+	td,
+	th,
+	code,
+	pre,
+	samp {
+		-webkit-hyphens: auto; /* césure propre */
+		-moz-hyphens: auto;
+		hyphens: auto;
+		word-wrap: break-word; /* passage à la ligne forcé */
+	}
+	
+	code,
+	pre,
+	samp {
+		white-space: pre-wrap; /* passage à la ligne spécifique pour les éléments à châsse fixe */
+	}
+	
+	/* Passer à une seule colonne (à appliquer aux éléments multi-colonnes) */
+
+	.element1,
+	.element2 {
+		float: none;
+		width: auto;
+	}
+	
+	/* masquer les éléments superflus */
+
+	.hide_mobile {
+		display: none !important;
+	}
+	
+	/* Un message personnalisé */
+
+	body:before {
+		content: "Version mobile du site";
+		display: block;
+		text-align: center;
+		font-style: italic;
+		color: 
+#777;
+	}
+}
+
+@media (max-device-width:768px) and (orientation: landscape) {
+    html {
+     -webkit-text-size-adjust: 100%;
+     -ms-text-size-adjust: 100%;
+    }
+  }
