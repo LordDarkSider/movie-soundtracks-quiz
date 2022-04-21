@@ -50,7 +50,7 @@ function change_language(){
 
 function suggestions_reload(language){
     suggestions = [];
-    for(var i = 1; i < data.size+1; i++){suggestions.push(data.get(i).get('titles').get(language))};
+    for(var i = 1; i < data.size+1; i++){suggestions.push(data.get(String(i)).get('titles').get(language))};
 };
 
 function infobulle_show(b){
@@ -113,7 +113,7 @@ function round(num){
     {var n = Math.floor(Math.random()*data.size +1); while(done.indexOf(n)>-1 & answers.indexOf(n)>-1){n = Math.floor(Math.random()*data.size +1)}; answers.push(n);};
     var objets = [answer1, answer2, answer3, answer4]
     for(var i = 0; i < 4; i++)
-    {var n = Math.floor(Math.random()*answers.length); y = data.get(answers[n]).get('titles').get(language);  objets[i].innerHTML = y; objets[i].value = y; answers.splice(n,1)}
+    {var n = Math.floor(Math.random()*answers.length); y = data.get(String(answers[n])).get('titles').get(language);  objets[i].innerHTML = y; objets[i].value = y; answers.splice(n,1)}
     }
     
     else{poster.style.display='block'; bloc_entry.style.display='block'; bloc_mcq.style.display='none'};
@@ -190,7 +190,7 @@ function select_alea(){
     var n = Math.floor(Math.random()*data.size +1);
     while(done.indexOf(n)>-1){n = Math.floor(Math.random()*data.size +1)};
     done.push(n);
-    return n
+    return String(n)
 };
 
 function timeout(){
@@ -277,7 +277,6 @@ function init(){
     out = 0;
     t = 0;
     mcq_value = '';
-    //var ttrial_out = setTimeout(timeout, 300000);
 };
 
 var mode = '';
@@ -291,4 +290,27 @@ var score = 0;
 var out = 0;
 var t = 0;
 var mcq_value = '';
+
+//Chargement des donnees JSON des soundtracks
+let data = null
+var requestURL = 'https://lorddarksider.github.io/Movie-Soundtracks-Quiz/data/soundtracks.json';
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'text';
+request.send();
+
+request.onload = function() {
+    var json = request.response;
+    data = new Map(Object.entries(JSON.parse(json)));
+    data.forEach(function(value, key, map){
+        data.set(key,new Map(Object.entries(value)));
+        data.get(key).set("titles",new Map(Object.entries(data.get(key).get("titles"))));
+    });
+};
+
+request.onerror = function() {
+    document.body.insertAdjacentHTML('beforeend', '<script type="text/javascript" src="data/soundtracks.js"></script>');
+};
+
+
 init();
