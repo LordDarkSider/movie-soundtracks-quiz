@@ -1,6 +1,6 @@
 //Chargement des donnees JSON des soundtracks
 let data = null
-var requestURL = 'https://lorddarksider.github.io/Movie-Soundtracks-Quiz/data/soundtracks.json';
+var requestURL = 'https://lorddarksider.github.io/movie-soundtracks-quiz/data/soundtracks.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 request.responseType = 'text';
