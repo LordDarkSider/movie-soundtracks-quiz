@@ -126,14 +126,16 @@ function round(num){
     
     musique = new Audio('themes/'+id+'.mp3');
     musique.loop=true;
-    musique.play();
+    musique.onloadeddata = (event) => {
+        musique.play();
+        
+        if (mode=='mcq'){x=45} else if (mode=='normal'){x=75};
+        out = setTimeout(timeout, x*1000);
+        timer_change();
+        t = setInterval(timer_change, 1000);
+    };
 
     input.focus()
-    
-    if (mode=='mcq'){x=45} else if (mode=='normal'){x=75};
-    out = setTimeout(timeout, x*1000);
-    timer_change();
-    t = setInterval(timer_change, 1000);
 };
 
 function verification(){
@@ -279,6 +281,10 @@ function init(){
     mcq_value = '';
 };
 
+function check_resolution(){
+    if(screen.width<=1000){alert('The resolution of your device is not sufficient for an optimal display.\nWe are currently working on a mobile version of the website.')};
+};
+
 var mode = '';
 var x = 0;
 var nb_movies = 0;
@@ -291,3 +297,4 @@ var out = 0;
 var t = 0;
 var mcq_value = '';
 init();
+setTimeout(check_resolution, 1000);
