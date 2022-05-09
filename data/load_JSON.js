@@ -16,5 +16,5 @@ request.onload = function() {
 };
 
 request.onerror = function() {
-    location.replace('main_error.html')
+    location.replace('https://lorddarksider.github.io/movie-soundtracks-quiz/main_error.html')
 };
