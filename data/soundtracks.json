@@ -346,6 +346,76 @@
         "composer":"Éric Serra",
         "titles": {"EN":"The Fifth Element","FR":"Le Cinquième Élément","ES":"El quinto elemento","DE":"Das fünfte Element"},
         "ytblink":"OLAK5uy_nnsoE_Qtyl9lnl6y01nc5dEU1lLZX5AZg"
+    },
+	
+	"51": {
+        "id": "4wZ4Hk7K5kOIPpmUdk2DKHfVeW6",
+        "composer":"Bernard Herrmann",
+        "titles": {"EN":"Psycho","FR":"Psychose","ES":"Psicosis","DE":"Psycho"},
+        "ytblink":"OLAK5uy_nlX7VloGcZlFjF2DF6QdgPmN8muqBRefc"
+    },
+	
+	"52": {
+        "id": "b6ko0IKC8MdYBBPkkA1aBPLe2yz",
+        "composer":"Rachel Elkind & Wendy Carlos",
+        "titles": {"EN":"The Shining","FR":"Shining","ES":"El resplandor","DE":"Shining"},
+        "ytblink":"PL7icaV1kQr6mVHgu2OjXM_iyadyZevryB"
+    },
+	
+	"53": {
+        "id": "9E2y5Q7WlCVNEhP5GiVTjhEhx1o",
+        "composer":"Benjamin Wallfisch",
+        "titles": {"EN":"It","FR":"Ça","ES":"It","DE":"Es"},
+        "ytblink":"OLAK5uy_knz8OlpubkfjRKpl0qO6Byf6WqGgCfuGM"
+    },
+	
+	"54": {
+        "id": "rplLJ2hPcOQmkFhTqUte0MkEaO2",
+        "composer":"Howard Shore",
+        "titles": {"EN":"The Silence of the Lambs","FR":"Le Silence des agneaux","ES":"El silencio de los corderos","DE":"Das Schweigen der Lämmer"},
+        "ytblink":"OLAK5uy_lZzZ8NG6kx-P8NMe6MJkzeW04crfqXukw"
+    },
+	
+	"55": {
+        "id": "56XAyRDe8UpeAb7QKdqyERpXhTM",
+        "composer":"Berlin",
+        "titles": {"EN":"Top Gun","FR":"Top Gun","ES":"Top Gun: Ídolos del aire","DE":"Top Gun – Sie fürchten weder Tod noch Teufel"},
+        "ytblink":"OLAK5uy_kxWlL6wI3GTFQg0b_lJamRr1JX1WrqS7E"
+    },
+	
+	"56": {
+        "id": "9wSbe4CwObACCQvaUVhWQyLR5Vz",
+        "composer":"John Williams",
+        "titles": {"EN":"Home Alone","FR":"Maman, j'ai raté l'avion !","ES":"Solo en casa","DE":"Kevin – Allein zu Haus"},
+        "ytblink":"OLAK5uy_nDyKlpVDCCHfaiV5GlAuGiVK92-aygIRE"
+    },
+	
+	"57": {
+        "id": "3bhkrj58Vtu7enYsRolD1fZdja1",
+        "composer":"Nino Rota",
+        "titles": {"EN":"The Godfather","FR":"Le Parrain","ES":"El padrino","DE":"Der Pate"},
+        "ytblink":"OLAK5uy_lNNa4Yy1oclvmViyLYHiG3aMi1Z3DjCgU"
+    },
+	
+	"58": {
+        "id": "uLOmOF5IzWoyrgIF5MfUnh5pa1X",
+        "composer":"Danny Elfman",
+        "titles": {"EN":"Men in Black","FR":"Men in Black","ES":"Hombres de negro","DE":"Men in Black"},
+        "ytblink":"OLAK5uy_kj8g5CJHzi_mEqLJnAiQFc8vizs_ZmQtI"
+    },
+	
+	"59": {
+        "id": "4ucLGcXVVSVnsfkGtbLY4XAius8",
+        "composer":"Mike Oldfield",
+        "titles": {"EN":"The Exorcist","FR":"L'Exorciste","ES":"El exorcista","DE":"Der Exorzist"},
+        "ytblink":"OLAK5uy_lllOdNsooigP3OoGTM0lBm1HiAG3m8aGc"
+    },
+	
+	"60": {
+        "id": "jDK57GshaPhkdRmQ9E6MEAc4srB",
+        "composer":"Éric Lévi",
+        "titles": {"EN":"The Visitors","FR":"Les Visiteurs","ES":"Los visitantes","DE":"Die Besucher"},
+        "ytblink":"OLAK5uy_nu7qYWW4DolzzdTxf1qWZu6DEI0bc6z9Y"
     }
-	   
+	
 }
