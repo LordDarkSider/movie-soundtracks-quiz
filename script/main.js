@@ -181,8 +181,9 @@ function result(num, etat){
 function end(){
     bloc_game.style.display='none';
     bloc_end.style.display='block';
-    if(mode=='trial'){return score_end_label.innerHTML = ('Score: '+String(score));}
-    else{score_end_label.innerHTML = ('Score: '+String(Math.round(score))+'/1000')};
+    if(mode=='mcq'){score_end_label.innerHTML = ('Score: '+String(score)+'/2000')}
+	else if(mode=='normal'){score_end_label.innerHTML = ('Score: '+String(Math.round(score))+'/1000')}
+	else if(mode=='trial'){score_end_label.innerHTML = ('Score: '+String(score))};
 };
 
 function time_trial(){
