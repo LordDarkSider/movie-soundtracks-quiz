@@ -416,6 +416,76 @@
         "composer":"Éric Lévi",
         "titles": {"EN":"The Visitors","FR":"Les Visiteurs","ES":"Los visitantes","DE":"Die Besucher"},
         "ytblink":"OLAK5uy_nu7qYWW4DolzzdTxf1qWZu6DEI0bc6z9Y"
+    },
+	
+	"61": {
+        "id": "gEU2QniE6E77NI6lCU6MxlNBvIx",
+        "composer":"Hans Zimmer",
+        "titles": {"EN":"Interstellar","FR":"Interstellar","ES":"Interstellar","DE":"Interstellar"},
+        "ytblink":"OLAK5uy_ksMcoC36wmr-fyFQfcpM_TjVqo3pBA1H4"
+    },
+	
+	"62": {
+        "id": "iTNHwO896WKkaoPtpMMS74d8VNi",
+        "composer":"Hans Zimmer",
+        "titles": {"EN":"Rain Man","FR":"Rain Man","ES":"Rain Man","DE":"Rain Man"},
+        "ytblink":"OLAK5uy_ngWksG1TZ0TUdrnzSWOLQ589EtqEsMa6k"
+    },
+	
+	"63": {
+        "id": "biznhvfedHPp9GKjlVFXH6OZtyU",
+        "composer":"Alan Silvestri",
+        "titles": {"EN":"Predator","FR":"Predator","ES":"Depredador","DE":"Predator"},
+        "ytblink":"PLD1D52F3B782C88A1"
+    },
+	
+	"64": {
+        "id": "fTq4ThIP3pQTYR9eDepsbDHqdcs",
+        "composer":"Michael Kamen, Eric Clapton & David Sanborn",
+        "titles": {"EN":"Lethal Weapon","FR":"L'Arme fatale","ES":"Arma letal","DE":"Lethal Weapon – Zwei stahlharte Profis"},
+        "ytblink":"OLAK5uy_nkg7WkYxpR_AghqXySIRKsOyGWL9wg2uk"
+    },
+	
+	"65": {
+        "id": "59ri09xh35iWGrEQV8gUUoebirr",
+        "composer":"Raymond Lefebvre",
+        "titles": {"EN":"The Troops of St. Tropez","FR":"Le Gendarme de Saint-Tropez","ES":"El gendarme de Saint-Tropez","DE":"Der Gendarm von Saint Tropez"},
+        "ytblink":"OLAK5uy_mewD6fib0CSEj6-6zjGN7yfK0EbcOGaO0"
+    },
+	
+	"66": {
+        "id": "nnl6OWkyPpuMm595hmAxNW3rZFn",
+        "composer":"Danny Elfman",
+        "titles": {"EN":"Beetlejuice","FR":"Beetlejuice","ES":"Bitelchús","DE":"Beetlejuice"},
+        "ytblink":"OLAK5uy_kGo9wt-r9gqEnyCF2iBTcUlBfKY4gRVwo"
+    },
+	
+	"67": {
+        "id": "y8A0Cvp8WQmZ3bjbnsL53lY0dsC",
+        "composer":"Hans Zimmer",
+        "titles": {"EN":"Pearl Harbor","FR":"Pearl Harbor","ES":"Pearl Harbor","DE":"Pearl Harbor"},
+        "ytblink":"OLAK5uy_n0Z2MkfmAS0NK0J_dRhGcKno21enS0pX0"
+    },
+	
+	"68": {
+        "id": "h6NYfVUyM6CDURtZSnBpz647Ldd",
+        "composer":"h6NYfVUyM6CDURtZSnBpz647Ldd",
+        "titles": {"EN":"Fantastic Beasts","FR":"Les Animaux fantastiques","ES":"Animales fantásticos","DE":"Phantastische Tierwesen"},
+        "ytblink":"OLAK5uy_kIwKP-VjWy4QX0XrW7xb9A_PRn1pUrnNk"
+    },
+	
+	"69": {
+        "id": "63kGofUkt1Mx0SIL4XI4Z5AoSgt",
+        "composer":"Danny Elfman",
+        "titles": {"EN":"Fifty Shades of Grey","FR":"Cinquante Nuances de Grey","ES":"Cincuenta sombras de Grey","DE":"Fifty Shades of Grey"},
+        "ytblink":"OLAK5uy_mVPkX08ViLw3dJy0CKc7iplVUKJdlXK9g"
+    },
+	
+	"70": {
+        "id": "ay7xwXn1G9fzX9TUBlkGA584rGi",
+        "composer":"Henry Jackman & Matthew Margeson",
+        "titles": {"EN":"Kingsman: The Secret Service","FR":"Kingsman : Services secrets","ES":"Kingsman: Servicio secreto","DE":"Kingsman: The Secret Service"},
+        "ytblink":"PLAV9e1ws3rQ96QPhT31wnqU9r-Ob0kBPm"
     }
 	
 }
