@@ -11,22 +11,22 @@ body {
 .button {
     display:block;
     margin: auto;
-    margin-block: 1.25em;
+    margin-block: 1em;
     border: 0;
-    line-height: 3;
-    padding: 0 25px;
-    font-size: 1.25rem;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
     text-align: center;
     color: #fff;
-    text-shadow: 1.5px 1.5px 1.5px #000;
-    border-radius: 15px;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
     background-color: rgba(220, 0, 0, 1);
     background-image: linear-gradient(to top left,
                                     rgba(0, 0, 0, .2),
                                     rgba(0, 0, 0, .2) 30%,
                                     rgba(0, 0, 0, 0));
-    box-shadow: inset 2.5px 2.5px 3.5px rgba(255, 255, 255, .6),
-                inset -2.5px -2.5px 3.5px rgba(0, 0, 0, .6);
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
 }
 
 .button:hover {
@@ -68,11 +68,11 @@ body {
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-#infobulle {margin-top: 10%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 14pt; font-family: 'Calibri'; font-weight: bold;}
+#infobulle {margin-top: 10%; margin-bottom: 1%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 12pt; font-family: 'Calibri'; font-weight: bold}
 
 #topbar1{margin-top: 2.5%;}
 #home {display:inline-block; width: 1.75em; vertical-align: center; margin-right: 2%;}
-#credits {display:inline-block; width: 1.5em; vertical-align: center; margin-right: 55%;}
+#credits {display:inline-block; width: 1.5em; vertical-align: center; margin-right: 50%;}
 #langconfig {display:inline-block; vertical-align: top;}
 #flag {display:inline-block; margin: auto;}
 #selectlang {display:inline-block; margin: auto;}
@@ -81,56 +81,53 @@ body {
 #titre_quiz{display: inline-block; margin-inline:2.5%;}
 
 
-.central{display: inline-block; margin-top: 2em;}
-#central_left{vertical-align: top; margin: 4em; width: 10%}
-#central_right{vertical-align: top; margin: 4em; width: 10%}
+#bloc_top{display: block; margin-bottom: 10%; margin-top: 10%;}
+
 
 #progression {
-    display: block;
+    display: inline-block;
     padding: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.25em;
     width: fit-content;
-    margin: auto;
+    margin-inline: 3%;
     color: #ffff;
     border-radius: 10px;
     background-color: DarkBlue;
-    margin-bottom: 1.5em;
 }
 
 .score {
-    display: block;
+    display:  inline-block;
     padding: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.25em;
     width: fit-content;
-    margin: auto;
+    margin-inline: 3%;
     color: #ffff;
     border-radius: 10px;
     background-color: goldenrod;
-    margin-bottom: 2em;
 }
 
 #timer {
-    display: block;
+    display: inline-block;
     padding: 0.5em;
-    font-size: 1.5em;
+    font-size: 1.25em;
     width: fit-content;
-    margin: auto;
+    margin-inline: 3%;
     color: #ffff;
     border-radius: 10px;
     background-color: green;
-    margin-bottom: 2em;
 }
 
-#poster{display: block; height: 22.5em; margin: auto;}
-#link{display: block;margin-bottom: 2em;}
-#next_button{display: block;  margin: auto; margin-bottom: 2em;}
-#skip_button{display: block;  margin: auto; margin-bottom: 2em;}
+#link{display: inline; width: 15%; vertical-align: bottom; margin-inline: 3%;}
+#poster{display: block; height: 18em; margin: auto;}
+#next_button{display: block;  margin: auto;}
+#skip_button{display: block;  margin: auto}
 
-#bloc_entry {margin-top: 2.5em;}
-#bloc_result {margin-top: 2.5em;}
+#bloc_entry {margin-top: 2.5em; margin-bottom: 2em;}
+#bloc_result {margin-top: 2.5em; max-width: 0.9rem;}
 #bloc_end {margin-top: 5em;}
-#solution{display:block; font-size: 20pt; font-family: 'Verdana'; font-weight: bold;}
+#solution{display:block; font-size: 16pt; font-family: 'Verdana'; font-weight: bold; margin-inline: auto; word-break: break-all; width: 90%;}
 
+#back_button2{margin-top: 10%;}
 
 
 @media (max-width: 640px) {

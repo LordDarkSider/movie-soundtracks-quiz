@@ -68,7 +68,7 @@ body {
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-#infobulle {margin-top: 2%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 14pt; font-family: 'Calibri'; font-weight: bold;}
+#infobulle {margin-top: 3%; margin-bottom: 1%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 14pt; font-family: 'Calibri'; font-weight: bold;}
 
 #topbar{margin-top: 2.5%;}
 #home {display:inline-block; width: 1.75em; vertical-align: top; margin-right: 1%;}
@@ -125,87 +125,6 @@ body {
 #skip_button{display: block;  margin: auto; margin-bottom: 2em;}
 
 #bloc_entry {margin-top: 2.5em;}
-#bloc_result {margin-top: 2.5em;}
+#bloc_result {margin-top: 2.5em; max-width: 90%;}
 #bloc_end {margin-top: 5em;}
-#solution{display:block; font-size: 20pt; font-family: 'Verdana'; font-weight: bold;}
-
-
-
-@media (max-width: 640px) {
-	* {
-		box-sizing: border-box;
-	}
-	
-	/* passer body (et tous les éléments de largeur fixe) en largeur automatique */
-
-	body {
-		width: auto;
-		margin: 0;
-		padding: 0;
-	}
-	
-	/* fixer une largeur maximale de 100% aux éléments potentiellement problématiques */
-
-	img,
-	table,
-	td,
-	blockquote,
-	code,
-	pre,
-	textarea,
-	input,
-	iframe,
-	object,
-	embed,
-	video {
-		max-width: 100%;
-	}
-	
-	/* conserver le ratio des images */
-
-	img {
-		height: auto;
-	}
-	
-	/* gestion des mots longs */
-
-	textarea,
-	table,
-	td,
-	th,
-	code,
-	pre,
-	samp {
-		-webkit-hyphens: auto; /* césure propre */
-		-moz-hyphens: auto;
-		hyphens: auto;
-		word-wrap: break-word; /* passage à la ligne forcé */
-	}
-	
-	code,
-	pre,
-	samp {
-		white-space: pre-wrap; /* passage à la ligne spécifique pour les éléments à châsse fixe */
-	}
-	
-	/* Passer à une seule colonne (à appliquer aux éléments multi-colonnes) */
-
-	.element1,
-	.element2 {
-		float: none;
-		width: auto;
-	}
-	
-	/* masquer les éléments superflus */
-
-	.hide_mobile {
-		display: none !important;
-	}
-}
-
-@media (max-device-width:768px) and (orientation: landscape) {
-    html {
-     -webkit-text-size-adjust: 100%;
-     -ms-text-size-adjust: 100%;
-    }
-  }
+#solution{display:block; font-size: 20pt; font-family: 'Verdana'; font-weight: bold; margin-inline: auto;  word-break: break-all; width: 90%;}
