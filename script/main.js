@@ -262,9 +262,10 @@ addEventListener("keyup", function(event){
 });
 
 function home(){
-    if(ntrack >= 0){var language = selectlang.value; var msg = config_language.get('confirm').get(language); conf= confirm(msg)}
-    else{var conf = 1;};
-    if(conf){location.reload();};
+    //if(ntrack >= 0){var language = selectlang.value; var msg = config_language.get('confirm').get(language); conf= confirm(msg)}
+    //else{var conf = 1;};
+    //if(conf){location.reload();};
+    location.reload();
 };
 
 function init(){
@@ -288,10 +289,6 @@ function init(){
     mcq_value = '';
 };
 
-function check_resolution(){
-    if(screen.width<=1000){alert('The resolution of your device is not sufficient for an optimal display.\nWe are currently working on a mobile version of the website.')};
-};
-
 var mode = '';
 var x = 0;
 var nb_movies = 0;
@@ -305,6 +302,5 @@ var out = 0;
 var t = 0;
 var mcq_value = '';
 init();
-setTimeout(check_resolution, 1000);
 
 //https://www.zdnet.fr/actualites/javascript-precharger-les-images-pour-accelerer-l-affichage-39155708.htm?p=2
