@@ -154,7 +154,7 @@ function result(num, etat){
     timer.style.display='none';
     skip_button.style.display='none';
     next_button.style.display='block';
-    link.style.display='block';
+    link.style.display='inline-block';
 
     if (mode=='mcq'){poster.style.display='block'; bloc_mcq.style.display='none'}
     
@@ -171,7 +171,8 @@ function result(num, etat){
     var sol = data.get(num).get('titles').get(language);
     var composer = data.get(num).get('composer');
     
-    solution.innerHTML = ("<img src='"+ico+"'> "+sol+' ('+composer+')');
+    if (screen.width<930){solution.innerHTML = ("<img src='"+ico+"'> "+sol+'<br/>('+composer+')');}
+    else {solution.innerHTML = ("<img src='"+ico+"'> "+sol+' ('+composer+')');}
     score_label.innerHTML = ('Score: '+String(Math.round(score)));
     solution.style.color = color;
     link.href= 'https://www.youtube.com/playlist?list=' + data.get(num).get('ytblink');
