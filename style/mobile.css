@@ -11,22 +11,22 @@ body {
 .button {
     display:block;
     margin: auto;
-    margin-block: 1em;
+    margin-block: 1.25em;
     border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
+    line-height: 3;
+    padding: 0 25px;
+    font-size: 1.25rem;
     text-align: center;
     color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
+    text-shadow: 1.5px 1.5px 1.5px #000;
+    border-radius: 15px;
     background-color: rgba(220, 0, 0, 1);
     background-image: linear-gradient(to top left,
                                     rgba(0, 0, 0, .2),
                                     rgba(0, 0, 0, .2) 30%,
                                     rgba(0, 0, 0, 0));
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-                inset -2px -2px 3px rgba(0, 0, 0, .6);
+    box-shadow: inset 2.5px 2.5px 3.5px rgba(255, 255, 255, .6),
+                inset -2.5px -2.5px 3.5px rgba(0, 0, 0, .6);
 }
 
 .button:hover {
@@ -68,15 +68,17 @@ body {
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-#infobulle {margin-top: 2%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 14pt; font-family: 'Calibri'; font-weight: bold;}
+#infobulle {margin-top: 10%; background: transparent; text-align: center; resize: none; border: 0 none; pointer-events: none; color: gold; font-size: 14pt; font-family: 'Calibri'; font-weight: bold;}
 
-#topbar{margin-top: 2.5%;}
-#home {display:inline-block; width: 1.75em; vertical-align: top; margin-right: 1%;}
-#credits {display:inline-block; width: 1.5em; vertical-align: top;}
-#titre_quiz{display: inline-block; margin-inline:2.5%;}
+#topbar1{margin-top: 2.5%;}
+#home {display:inline-block; width: 1.75em; vertical-align: center; margin-right: 2%;}
+#credits {display:inline-block; width: 1.5em; vertical-align: center; margin-right: 55%;}
 #langconfig {display:inline-block; vertical-align: top;}
 #flag {display:inline-block; margin: auto;}
 #selectlang {display:inline-block; margin: auto;}
+
+#topbar2{margin-top: 2%;}
+#titre_quiz{display: inline-block; margin-inline:2.5%;}
 
 
 .central{display: inline-block; margin-top: 2em;}
