@@ -44,7 +44,7 @@
 
         <div id="menu">
 
-            <textarea id="infobulle" cols="80" rows="4"></textarea>
+            <textarea id="infobulle" cols="80" rows="6" wrap="hard"></textarea>
             
             <div class='config' id="config1">
                 <button class="button" id="mcq_choice" onmouseover="infobulle_show(0)" onmouseout="infobulle_hide()" onclick="change_mode('mcq')" >MCQ</button>
@@ -62,12 +62,14 @@
         <div id="bloc_game">
 
             
-            <div class="central" id="central_left">
-                <label id='progression'></label>
+            <div id="bloc_top">
                 <label class="score" id='score_label'></label>
+                <label id='progression'></label>
+                <label id='timer'></label>
+                <a id='link' href="" target="_blank"><img src='images/ytb.png'></a>
             </div>
             
-            <div class="central" id="central_middle">
+            <div id="bloc_central">
                 <img id="poster" src="" draggable="false" oncontextmenu="return false">
                 <div id="bloc_mcq">
                     <button class="button2" id="answer1" onclick="enter_mcq_value(1)">answer1</button>
@@ -76,14 +78,6 @@
                     <button class="button2" id="answer4" onclick="enter_mcq_value(4)">answer4</button>
                 </div>
             </div>
-
-            <div class="central" id="central_right">
-                <label id='timer'></label>
-                <a id='link' href="" target="_blank"><img src='images/ytb.png' style="width: 2em;"> </a>
-                <button id="skip_button" onclick="result(num,'incorrect')" >SKIP</button>
-                <button id="next_button" onclick="next()" >NEXT</button>
-            </div>
-
             
             <div id="bloc_entry">
                 <input type="text" id="reponse_entry" name="reponse_entry" size="30" placeholder="What movie is this music from ?" list=datalist>
@@ -91,8 +85,11 @@
                 <button id="valide_button" onclick="verification()" >OK</button>
             </div>
 
+            <button id="skip_button" onclick="result(num,'incorrect')" >SKIP</button>
+
             <div id="bloc_results">
-                <p id="solution">TEST</p>
+                <p id="solution" wrap="hard"></p>
+                <button id="next_button" onclick="next()" >NEXT</button>
             </div>
             
         </div>
