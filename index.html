@@ -15,6 +15,7 @@
         <link rel="stylesheet" type="text/css" href="style/main.css"/>
 
     </head>
+
 	
 	<body>
 
@@ -24,10 +25,10 @@
 
             <img id="home" src="images/home.ico" onclick="home()">
 
+            <a href="images/credits.jpg" target="_blank"><img id='credits' src="images/infos.ico"></a>
+
             <img id="titre_quiz" src="images/title.png" draggable="false">
 
-            <a id='credits' href="images/credits.jpg" target="_blank">Credits</a> 
-    
             <div id="langconfig">  
                 <img id="flag" src="flags/english.png">
                 <select id="selectlang" data-width="fit" onChange="change_language()">
@@ -102,6 +103,7 @@
 
     </div>
 
+    <script>if(screen.width<930){location.replace("mobile.html")};</script>
     <script type="text/javascript" src="script/config.js"></script>
     <script type="text/javascript" src="script/soundtracks.js"></script>
     <script type="text/javascript" src="script/load_JSON.js"></script>
