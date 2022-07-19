@@ -10,4 +10,6 @@ let config_language = new Map([
             ['placeholder', new Map([ ['EN','What movie is this music from?'],['FR','De quel film provient cette musique ?'],['ES','¿De qué película es esta música?'],['DE','Aus welchem ​​Film stammt diese Musik?'] ])],
             ['ytb', new Map([ ['EN','Listen more on YouTube'],['FR',"Ecouter plus sur YouTube"],['ES','Escucha más en YouTube'],['DE','Hören Sie mehr auf YouTube'] ])],
             ['confirm', new Map([ ['EN','Warning!\nYou will not be able to resume the game in progress.\nWould you like to return to the homepage?'],['FR',"Attention !\nVous ne pourrez pas revenir sur la partie en cours.\nSouhaitez-vous revenir à l'accueil ?"],['ES','Atención!\nNo podrás reanudar el juego en curso.\n¿Quieres volver a la página de inicio?'],['DE','Warnung !\nSie können das laufende Spiel nicht fortsetzen.\nMöchten Sie zur Startseite zurückkehren?'] ])],
-        ]);
+            ['score_saving', new Map([ ['EN','Would you like to save your score? The best scores are listed on the leaderboard.'],['FR',"Souhaitez vous enregistrer votre score ? Les meilleurs scores sont inscrits au classement."],['ES','¿Quieres guardar tu puntuación? Las mejores puntuaciones se enumeran en la tabla de clasificación.'],['DE','Möchten Sie Ihre Punktzahl speichern? Die besten Ergebnisse werden auf der Rangliste aufgeführt.'] ])],
+            ['pseudo', new Map([ ['EN','Enter your nickname.'],['FR',"Entrer votre pseudo."],['ES','Ingresa tu alias.'],['DE','Trage deinen Spitznamen ein.'] ])],
+]);
