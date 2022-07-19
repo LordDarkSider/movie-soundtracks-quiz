@@ -3,11 +3,18 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 
-async function readScores(array) {
-    const {scores, error} = await _supabase
-        .from(array)
-        .select()
-    return scores
+async function readScores(array, p=null) {
+    if (p=null) {
+        const {scores, error} = await _supabase
+            .from(array)
+            .select()
+        return scores}
+    else {
+        const {score, error} = await _supabase
+            .from(array)
+            .select('score')
+            .eq('pseudo', p)
+        return score}
 }
 
 
