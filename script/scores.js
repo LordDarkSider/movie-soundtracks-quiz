@@ -5,17 +5,16 @@ const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 async function readScores(array, p=null) {
     if (p=null) {
-        const {scores, error} = await _supabase
+        const {data: scores, error} = await _supabase
             .from(array)
             .select()
         return scores}
     else {
-        const {score, error} = await _supabase
+        const {data: score, error} = await _supabase
             .from(array)
             .select('score')
             .eq('pseudo', p)
-        console.log(score)
-        console.log(error)}
+        return score}
 }
 
 
