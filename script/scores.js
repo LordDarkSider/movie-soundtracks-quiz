@@ -5,8 +5,7 @@ const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 async function insertData() {
     const { sc , error } = await _supabase
         .from('Normal Ranking')
-          .insert([
-            { pseudo: 'Léon', score: 777}
+        .upsert({ pseudo: 'Léon', score: 888 })
         ])
 
     console.log(sc)
