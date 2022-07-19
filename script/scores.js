@@ -6,7 +6,7 @@ async function insertData() {
     const { sc , error } = await _supabase
         .from('Normal Ranking')
           .insert([
-            { name: 'Léon', score: 777}
+            { pseudo: 'Léon', score: 777}
         ])
 
     console.log(sc)
