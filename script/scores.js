@@ -8,14 +8,14 @@ async function readScores(array, p=null) {
     if (p==null) {
         const {data: sc, error: errorInfo } = await _supabase
             .from(array)
-            .select('*')
+            .select('*');
         return sc}
     
     else {
         const {data: sc, error: errorInfo } = await _supabase
             .from(array)
             .select('score')
-            .eq('pseudo', p)
+            .eq('pseudo', p);
         return sc}
 }
 
@@ -23,8 +23,5 @@ async function readScores(array, p=null) {
 async function insertScore(array, p, s) {
     const {scores, error} = await _supabase
         .from(array)
-        .upsert({ pseudo: p, score: s})
-
-    console.log(scores)
-    console.log(error)
+        .upsert({ pseudo: p, score: s});
 }
