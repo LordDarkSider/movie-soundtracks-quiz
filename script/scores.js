@@ -5,7 +5,7 @@ const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 async function load_scores() {
     const { scores, error } = await _supabase
             .from('Normal Ranking')
-            .select(*)
+            .select('*')
 
     console.log(scores)
     console.log(error)
