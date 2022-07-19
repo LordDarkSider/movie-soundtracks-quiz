@@ -8,5 +8,6 @@ async function load_scores() {
             .select('David')
 
     console.log(scores)
+    console.log(error)
 }
 load_scores()
