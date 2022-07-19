@@ -8,7 +8,7 @@ async function readScores(array, p=null) {
     if (p==null) {
         const {sc, error} = await _supabase
             .from(array)
-            .select()
+            .select('*')
         console.log(sc)
         console.log(error)}
     
