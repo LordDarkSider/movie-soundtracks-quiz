@@ -187,6 +187,17 @@ function end(){
 	else if(mode=='trial'){score_end_label.innerHTML = ('Score: '+String(score))};
 };
 
+function save_score(mode){
+	if (confirm(config_language.get('score_saving').get(language))) {
+		let pseudo = prompt(config_language.get('pseudo').get(language))
+		if (pseudo!=null && pseudo.lenght>0){
+			let best_score = readScores((mode+'Ranking'), pseudo)[0].score;
+			if (score > best_score) {insertScore((mode+'Ranking'), pseudo, score)};
+		};
+	};
+	
+};
+
 function time_trial(){
 
 };
