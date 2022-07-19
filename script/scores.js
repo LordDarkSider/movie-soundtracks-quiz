@@ -14,7 +14,8 @@ async function readScores(array, p=null) {
             .from(array)
             .select('score')
             .eq('pseudo', p)
-        return score}
+        console.log(score)
+        console.log(error)}
 }
 
 
