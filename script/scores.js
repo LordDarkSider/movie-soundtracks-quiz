@@ -9,16 +9,14 @@ async function readScores(array, p=null) {
         const {data: sc, error: errorInfo } = await _supabase
             .from(array)
             .select('*')
-        console.log(sc)
-        console.log(errorInfo)}
+        return sc}
     
     else {
         const {data: sc, error: errorInfo } = await _supabase
             .from(array)
             .select('score')
             .eq('pseudo', p)
-        console.log(sc)
-        console.log(errorInfo)}
+        return sc}
 }
 
 
