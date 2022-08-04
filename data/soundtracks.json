@@ -486,6 +486,76 @@
         "composer":"Henry Jackman & Matthew Margeson",
         "titles": {"EN":"Kingsman: The Secret Service","FR":"Kingsman : Services secrets","ES":"Kingsman: Servicio secreto","DE":"Kingsman: The Secret Service"},
         "ytblink":"PLAV9e1ws3rQ96QPhT31wnqU9r-Ob0kBPm"
+    },
+	
+	"71": {
+        "id": "ccqpHq5tk5W4ymbSbuoy4uYOxFI",
+        "composer":"John Williams",
+        "titles": {"EN":"Minority Report","FR":"Minority Report","ES":"Minority Report","DE":"Minority Report"},
+        "ytblink":"OLAK5uy_llLyKr1WHAb_sjfvfi0K0E9n0_Mx2Ajg4"
+    },
+	
+	"72": {
+        "id": "gH27K0S7BiZCsNMxzOQTacG9IZp",
+        "composer":"Éric Serra",
+        "titles": {"EN":"Arthur and the Invisibles","FR":"Arthur et les Minimoys","ES":"Arthur y los Minimoys","DE":"Arthur und die Minimoys"},
+        "ytblink":"OLAK5uy_nbwOn0L-JOoavfgoFmP2gIbGewZReJ5w8"
+    },
+	
+	"73": {
+        "id": "wfGfxtBkhBzQfOZw4S8IQZgrH0a",
+        "composer":"Danny Elfman",
+        "titles": {"EN":"Charlie and the Chocolate Factory","FR":"Charlie et la Chocolaterie","ES":"Charlie y la fábrica de chocolate","DE":"Charlie und die Schokoladenfabrik"},
+        "ytblink":"OLAK5uy_mQ1QRuwXLT7TMWgPQAKFK1w3ifeXs7sXA"
+    },
+	
+	"74": {
+        "id": "prSfAi1xGrhLQNxVSUFh61xQ4Qy",
+        "composer":"Patrick Doyle",
+        "titles": {"EN":"Thor","FR":"Thor","ES":"Thor","DE":"Thor"},
+        "ytblink":"OLAK5uy_mQBNroOc13yhkaCSMobdJebtiTUeljVeQ"
+    },
+	
+	"75": {
+        "id": "yI6X2cCM5YPJtxMhUd3dPGqDAhw",
+        "composer":"Éric Serra",
+        "titles": {"EN":"Léon: The Professional","FR":"Léon","ES":"El profesional (Léon)","DE":"Léon – Der Profi"},
+        "ytblink":"OLAK5uy_li0nLyI3dGrQlV0BX27Lqaxj8dHO2963c"
+    },
+	
+	"76": {
+        "id": "80XJ5UkGuYTKDuALeG03BLk1OT1",
+        "composer":"Jean-Claude Petit",
+        "titles": {"EN":"Cyrano de Bergerac","FR":"Cyrano de Bergerac","ES":"Cyrano de Bergerac","DE":"Cyrano von Bergerac"},
+        "ytblink":"PLng42GMtDWRvttqnBKPstqkr4PWKN3Tvi"
+    },
+	
+	"77": {
+        "id": "uGBVj3bEbCoZbDjjl9wTxcygko1",
+        "composer":"Michael Giacchino",
+        "titles": {"EN":"Doctor Strange","FR":"Doctor Strange","ES":"Doctor Strange (Doctor Extraño)","DE":"Doctor Strange"},
+        "ytblink":"OLAK5uy_lDGHGpdS5XoyiRq_bIgj4M_YtbXYwf5Pc"
+    },
+	
+	78 {
+        "id": "j9lsWwnIDN2ZNtqZcE1x2o4ZKyI",
+        "composer":"Hans Zimmer",
+        "titles": {"EN":"The Da Vinci Code","FR":"Da Vinci Code","ES":"El código Da Vinci","DE":"The Da Vinci Code – Sakrileg"},
+        "ytblink":""
+    },
+	
+	"79": {
+        "id": "1wY4psJ5NVEhCuOYROwLH2XExM2",
+        "composer":"John Williams",
+        "titles": {"EN":"Saving Private Ryan","FR":"Il faut sauver le soldat Ryan","ES":"Salvar al soldado Ryan","DE":"Der Soldat James Ryan"},
+        "ytblink":"OLAK5uy_lnYJYORkAoVFnmoGEo5Fu9D3BeMt-5gOw"
+    },
+	
+	"80": {
+        "id": "5LrI4GiCSrChgkdskVZiwv643Kg",
+        "composer":"Brian May",
+        "titles": {"EN":"Mad Max","FR":"Mad Max","ES":"Mad Max","DE":"Mad Max"},
+        "ytblink":"PLJua6db54cWm4CJcri5EanNkQQ7cVM0t3"
     }
 	
 }
