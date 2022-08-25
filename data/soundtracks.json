@@ -556,6 +556,76 @@
         "composer":"Brian May",
         "titles": {"EN":"Mad Max","FR":"Mad Max","ES":"Mad Max","DE":"Mad Max"},
         "ytblink":"PLJua6db54cWm4CJcri5EanNkQQ7cVM0t3"
+    },
+	
+	"81": {
+        "id": "lsasOSgYI85EHygtT5SvcxtZVYT",
+        "composer":"Hans Zimmer",
+        "titles": {"EN":"The Last Samurai","FR":"Le Dernier Samouraï","ES":"El último samurái","DE":"Last Samurai"},
+        "ytblink":"OLAK5uy_n8LqTDMmoKYowL4lNg2uZS87KLlROc6hw"
+    },
+	
+	"82": {
+        "id": "saHP97rTPS5eLmrLQEcANmKrsFl",
+        "composer":"Alan Silvestri",
+        "titles": {"EN":"Forrest Gump","FR":"Forrest Gump","ES":"Forrest Gump","DE":"Forrest Gump"},
+        "ytblink":"OLAK5uy_mEWNlKiEhEt_ojSPNj4Bz2rVgOZpUkYw8"
+    },
+	
+	"83": {
+        "id": "63N9uy8nd9j7Eog2axPQ8lbr3Wj",
+        "composer":"Vangelis",
+        "titles": {"EN":"Blade Runner","FR":"Blade Runner","ES":"Blade Runner","DE":"Blade Runner"},
+        "ytblink":"OLAK5uy_neLURwHRNsWnZouMq5K_vGitaXhlKEr4g"
+    },
+	
+	"84": {
+        "id": "wrJjDB8SSJJKcpXVf4KAxZIHvBZ",
+        "composer":"Nathaniel Mechaly",
+        "titles": {"EN":"Taken","FR":"Taken","ES":"Venganza (Taken)","DE":"96 Hours (Taken)"},
+        "ytblink":"OLAK5uy_nP40zv9WAg7GO834ejh1PX9Ay315ZqwDI"
+    },
+	
+	"85": {
+        "id": "ode14q7WtDugFDp78fo9lCsmay9",
+        "composer":"John Paesano",
+        "titles": {"EN":"The Maze Runner","FR":"Le Labyrinthe","ES":"El corredor del laberinto","DE":"Maze Runner – Die Auserwählten im Labyrinth"},
+        "ytblink":"OLAK5uy_mKhGIkFUCYeDvvL-atqFOA1Dpqiu4EaUc"
+    },
+	
+	"86": {
+        "id": "jfTpuQGMHinR3dc6mZ5bXq3mTKk",
+        "composer":"James Horner",
+        "titles": {"EN":"Willow","FR":"Willow","ES":"Willow","DE":"Willow"},
+        "ytblink":"PLF9941020C92E8799"
+    },
+	
+	"87": {
+        "id": "o0kre9wRCZz3jjSjaru7QU0UtFz",
+        "composer":"Danny Elfman",
+        "titles": {"EN":"Alice in Wonderland","FR":"Alice au pays des merveilles","ES":"Alicia en el país de las maravillas","DE":"Alice im Wunderland"},
+        "ytblink":"OLAK5uy_mwd_0ufn2jPNO3f2prgSQ_1p36CRUQBSI"
+    },
+	
+	"88": {
+        "id": "qFf8anju5f2epI0my8RdwwIXFIP",
+        "composer":"Marc Shaiman",
+        "titles": {"EN":"The Addams Family","FR":"La Famille Addams","ES":"La familia Addams","DE":"Addams Family"},
+        "ytblink":"PLF8RSqDy64AXBhTgs-vXU970WY-N6Zqie"
+    },
+	
+	"89": {
+        "id": "pvWsgyMm8k9UPh3MzEyTUu1FhRG",
+        "composer":"John Williams",
+        "titles": {"EN":"Catch Me If You Can","FR":"Arrête-moi si tu peux","ES":"Atrápame si puedes","DE":"Catch Me If You Can"},
+        "ytblink":"OLAK5uy_mW5BC19WF9K4m2b3fTdsUkTI-c0fQuw20"
+    },
+	
+	"90": {
+        "id": "k2CTpexoS9MO9lKVFfnzwVdJuM",
+        "composer":"Bernard Herrmann",
+        "titles": {"EN":"Fahrenheit 451","FR":"Fahrenheit 451","ES":"Fahrenheit 451","DE":"Fahrenheit 451"},
+        "ytblink":"OLAK5uy_kTBXiBlTqQhU8aZE4kRdNTGgsGureQzak"
     }
 	
 }
