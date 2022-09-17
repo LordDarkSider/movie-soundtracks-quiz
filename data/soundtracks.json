@@ -626,6 +626,76 @@
         "composer":"Bernard Herrmann",
         "titles": {"EN":"Fahrenheit 451","FR":"Fahrenheit 451","ES":"Fahrenheit 451","DE":"Fahrenheit 451"},
         "ytblink":"OLAK5uy_kTBXiBlTqQhU8aZE4kRdNTGgsGureQzak"
+    },
+	
+	"91": {
+        "id": "zEUG0uqQBAQ9fYV8eL2S2twYAhf",
+        "composer":"Raymond Lefebvre",
+        "titles": {"EN":"The Cabbage Soup","FR":"La Soupe aux choux","ES":"Sopa de repollo","DE":"Louis und seine außerirdischen Kohlköpfe"},
+        "ytblink":"OLAK5uy_kJ_gZPioTjOHOUpfkoQEfGsdF-LaySkPI"
+    },
+	
+	"92": {
+        "id": "6aGn2X51bahFoOI8wE1h2VGTgcH",
+        "composer":"James Horner",
+        "titles": {"EN":"Jumanji","FR":"Jumanji","ES":"Jumanji","DE":"Jumanji"},
+        "ytblink":"OLAK5uy_k2No0u51gEbcZrZwrOU9gxNjhBeS9WPXE"
+    },
+	
+	"93": {
+        "id": "323BP0itpxTsO0skTwdnVmf7YC9",
+        "composer":"Ludovico Einaudi",
+        "titles": {"EN":"The Intouchables","FR":"Intouchables","ES":"Intocable","DE":"Ziemlich beste Freunde"},
+        "ytblink":"OLAK5uy_kVcASRwW8Z3HKKSBDp6MLl3GlBEAqbyng"
+    },
+	
+	"94": {
+        "id": "eTM3qtGhDU8cvjpoa6KEt5E2auU",
+        "composer":"Trevor Rabin & Harry Gregson-Williams",
+        "titles": {"EN":"Armageddon","FR":"Armageddon","ES":"Armageddon","DE":"Armageddon – Das jüngste Gericht"},
+        "ytblink":"OLAK5uy_lCaWibGpgXTW2-IHA6yjBr9pJEVbYNHLA"
+    },
+	
+	"95": {
+        "id": "uxzzxijgPIY7slzFvMotPv8wjKA",
+        "composer":"Ludwig Göransson",
+        "titles": {"EN":"Black Panther","FR":"Black Panther","ES":"Pantera Negra","DE":"Black Panther"},
+        "ytblink":"OLAK5uy_meQOIoVsm1d9BxIa0_81FydJlN8fSJG8Y"
+    },
+	
+	"96": {
+        "id": "2ncs7hqBsEjFMqt6Y7ShBCO9tWs",
+        "composer":"M83",
+        "titles": {"EN":"Oblivion","FR":"Oblivion","ES":"Oblivion","DE":"Oblivion"},
+        "ytblink":"OLAK5uy_ldocc8kKXSfdl5XaWo-qC49_MqDt3SDJU"
+    },
+	
+	"97": {
+        "id": "mwzaD2KmWzGUyVJtcUUilH9EbtL",
+        "composer":"Jerry Goldsmith",
+        "titles": {"EN":"The Edge","FR":"À couteaux tirés","ES":"El desafío","DE":"Auf Messers Schneide – Rivalen am Abgrund"},
+        "ytblink":"PLTg6AEoQT82ivLPUCjwnzAXDmIOy221_A"
+    },
+	
+	"98": {
+        "id": "vSNxAJTlD0r02V9sPYpOjqDZXUK",
+        "composer":"Alan Silvestri",
+        "titles": {"EN":"Captain America: First Avenger","FR":"Captain America: First Avenger","ES":"Capitán América: el primer vengador","DE":"Captain America: First Avenger"},
+        "ytblink":"OLAK5uy_mo4CgDCj_pNalRsYGvMX-NajBee2dASUc"
+    },
+	
+	"99": {
+        "id": "ctgZ7NaJYRBUgXbXKziOdpajkt1",
+        "composer":"Mark Mancina",
+        "titles": {"EN":"Speed","FR":"Speed","ES":"Speed: Máxima Potencia","DE":"Speed"},
+        "ytblink":"PLnpIGDCblPQVzVxBQNj_nuq-2ilrvZqCE"
+    },
+	
+	"100": {
+        "id": "d5NXSklXo0qyIYkgV94XAgMIckC",
+        "composer":"Hans Zimmer",
+        "titles": {"EN":"Dune","FR":"Dune","ES":"Dune","DE":"Dune"},
+        "ytblink":"OLAK5uy_ktXRLvrgCYYU5dGjONrnCmUY3X71Rg5Zw"
     }
 	
 }
