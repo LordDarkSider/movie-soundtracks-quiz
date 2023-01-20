@@ -294,7 +294,7 @@
 	
 	"43": {
         "id": "fIE3lAGcZDV1G6XM5KmuWnNsPp1",
-        "composer":"Dick Dale",
+        "composer":"Dick Dale's Misirlou surf rock version",
         "titles": {"EN":"Pulp Fiction","FR":"Pulp Fiction","ES":"Pulp Fiction","DE":"Pulp Fiction"},
         "ytblink":"PLo-lwfUjCydPw7IqdJRcZbOTTIXo1YrT2"
     },
@@ -338,7 +338,7 @@
         "id": "2ySXWBckQboalTZjhaLWRqc3gCN",
         "composer":"Dario Marianelli",
         "titles": {"EN":"V for Vendetta","FR":"V pour Vendetta","ES":"V de Vendetta","DE":"V wie Vendetta"},
-        "ytblink":""
+        "ytblink":"OLAK5uy_kOH_MiF9bQ7QlzK6LPjEM45_y3Dcs4W2g"
     },
 	
 	"50": {
@@ -378,7 +378,7 @@
 	
 	"55": {
         "id": "56XAyRDe8UpeAb7QKdqyERpXhTM",
-        "composer":"Berlin",
+        "composer":"Harold Faltermeyer",
         "titles": {"EN":"Top Gun","FR":"Top Gun","ES":"Top Gun: Ídolos del aire","DE":"Top Gun – Sie fürchten weder Tod noch Teufel"},
         "ytblink":"OLAK5uy_kxWlL6wI3GTFQg0b_lJamRr1JX1WrqS7E"
     },
@@ -541,7 +541,7 @@
         "id": "j9lsWwnIDN2ZNtqZcE1x2o4ZKyI",
         "composer":"Hans Zimmer",
         "titles": {"EN":"The Da Vinci Code","FR":"Da Vinci Code","ES":"El código Da Vinci","DE":"The Da Vinci Code – Sakrileg"},
-        "ytblink":""
+        "ytblink":"OLAK5uy_kmTUOFpwHB2uRWOFv3KkLAx7UgS7jaMXg"
     },
 	
 	"79": {
@@ -696,6 +696,76 @@
         "composer":"Hans Zimmer",
         "titles": {"EN":"Dune","FR":"Dune","ES":"Dune","DE":"Dune"},
         "ytblink":"OLAK5uy_ktXRLvrgCYYU5dGjONrnCmUY3X71Rg5Zw"
+    },
+	
+	"101": {
+        "id": "gQB8Y5RCMkv2zwzFHbUJX3kAhvA",
+        "composer":"Ride of the Valkyries by Richard Wagner",
+        "titles": {"EN":"Apocalypse Now","FR":"Apocalypse Now","ES":"Apocalypse Now","DE":"Apocalypse Now"},
+        "ytblink":"PL8z4DWuQPcJdD6Bdc85WzIGKCSskhtBTr"
+    },
+	
+	"102": {
+        "id": "jLqvVdR1gucaMF5wtCAOS9nsolY",
+        "composer":"Éric Serra",
+        "titles": {"EN":"La Femme Nikita","FR":"Nikita","ES":"Nikita","DE":"Nikita"},
+        "ytblink":"OLAK5uy_lAKrWr8w8cJOD9MmZPD2zI8jQw_Ld60ks"
+    },
+	
+	"103": {
+        "id": "aP8swke3gmowbkfZ6lmNidu0y9p",
+        "composer":"John Powell",
+        "titles": {"EN":"The Bourne Identity","FR":"La Mémoire dans la peau","ES":"El caso Bourne","DE":"Die Bourne Identität"},
+        "ytblink":"OLAK5uy_k4WLKvF5_5qkIk9WTn5DjPzdzU01FHCTY"
+    },
+	
+	"104": {
+        "id": "ydtGc9GXq0XGKozNOs0kmzfuuBm",
+        "composer":"Alan Silvestri",
+        "titles": {"EN":"Cast Away","FR":"Seul au monde","ES":"Náufrago","DE":"Cast Away – Verschollen"},
+        "ytblink":"PLocqHZj7MJfnglLP1VI7u5PsWwBUggqYV"
+    },
+	
+	"105": {
+        "id": "vPYgvd2MwHlxTamAOjwVQp4qs1W",
+        "composer":"Brian Tyler & Klaus Badelt",
+        "titles": {"EN":"Constantine","FR":"Constantine","ES":"Constantine","DE":"Constantine"},
+        "ytblink":"OLAK5uy_nagNgXSYoLpaBlYN5xNOsTT6MbTo96JFg"
+    },
+	
+	"106": {
+        "id": "21hS8mD8uxBVvf8xVYR30LbbmPO",
+        "composer":"Marco Beltrami",
+        "titles": {"EN":"Hellboy","FR":"Hellboy","ES":"Hellboy","DE":"Hellboy"},
+        "ytblink":"OLAK5uy_lQi6IErQ_BkbMbKiK6Sfi_o6b4wOPs8d0"
+    },
+	
+	"107": {
+        "id": "hll4O5vSAfnZDb6JbnP06GPtz7b",
+        "composer":"Danny Elfman",
+        "titles": {"EN":"Mars Attacks!","FR":"Mars Attacks!","ES":"Mars Attacks!","DE":"Mars Attacks!"},
+        "ytblink":"PL6OCq6q5dPSmkCwSXCdqdXfodZTyX-10G"
+    },
+	
+	"108": {
+        "id": "4Ky7xCXPMKXGopstPjwPRd4ZDrj",
+        "composer":"Christophe Beck",
+        "titles": {"EN":"Ant-Man","FR":"Ant-Man","ES":"Ant-Man","DE":"Ant-Man"},
+        "ytblink":"OLAK5uy_kZBllXXSLlzh2dgrdBHFCfyVbSBysQEvc"
+    },
+	
+	"109": {
+        "id": "zwSFEczP7AzqugAHHIX3zHniT0t",
+        "composer":"Wendy Carlos",
+        "titles": {"EN":"Tron","FR":"Tron","ES":"Tron","DE":"Tron"},
+        "ytblink":"OLAK5uy_k9vZf6oa_GP4W5BZOvsvUuG5SaedDi5gg"
+    },
+	
+	"110": {
+        "id": "v7TaX8kXMXs5yFFGR41guUDNcnB",
+        "composer":"Battle Without Honor or Humanity by Tomoyasu Hotei",
+        "titles": {"EN":"Kill Bill","FR":"Kill Bill","ES":"Kill Bill","DE":"Kill Bill"},
+        "ytblink":"OLAK5uy_nH0eieS5SNctvdLNCTaaPFaxep_TbIBZs"
     }
 	
 }
