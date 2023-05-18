@@ -763,7 +763,7 @@
 	
 	"110": {
         "id": "v7TaX8kXMXs5yFFGR41guUDNcnB",
-        "composer": "Battle Without Honor or Humanity by Tomoyasu Hotei",
+        "composer": "The Lonely Shepherd by Gheorghe Zamfir",
         "titles": {"EN":"Kill Bill","FR":"Kill Bill","ES":"Kill Bill","DE":"Kill Bill"},
         "ytblink": "OLAK5uy_nH0eieS5SNctvdLNCTaaPFaxep_TbIBZs"
     },
@@ -836,6 +836,76 @@
         "composer": "Howard Shore",
         "titles": {"EN":"Hugo","FR":"Hugo Cabret","ES":"La invención de Hugo","DE":"Hugo Cabret"},
         "ytblink": "OLAK5uy_mr_36R0tW8mkQHNewALx8XTEtQESZ0R2M"
+    },
+	
+	"121": {
+        "id": "udDclJoHjfjb8Ekgsd4FDteOkCU",
+        "composer": "Hildur Guðnadóttir",
+        "titles": {"EN":"Joker","FR":"Joker","ES":"Joker","DE":"Joker"},
+        "ytblink": "OLAK5uy_mgZkr94IC0dyBJNo8CI2md6ohDPk7x0s4"
+    },
+	
+	"122": {
+        "id": "gt3iyguaCIw8DpQZI1LIN5TohM2",
+        "composer": "Suite Punta del Este by Piazzolla & arranged by Paul Buckmaster",
+        "titles": {"EN":"Twelve Monkeys","FR":"L'Armée des douze singes","ES":"Doce Monos","DE":"12 Monkeys"},
+        "ytblink": ""
+    },
+	
+	"123": {
+        "id": "vuza0WqY239yBXOadKlGwJsZJFE",
+        "composer": "Burkhard Dallwitz & Philip Glass",
+        "titles": {"EN":"The Truman Show","FR":"The Truman Show","ES":"El show de Truman","DE":"Die Truman Show"},
+        "ytblink": "OLAK5uy_lqMKTmcylidOXLRQjb_hlckkhDficvujQ"
+    },
+	
+	"124": {
+        "id": "xRmsqvHnaWmrazJl9bTBqs4LAjp",
+        "composer": "Hans Zimmer",
+        "titles": {"EN":"The Lone Ranger","FR":"Lone Ranger : Naissance d'un héros","ES":"El llanero solitario","DE":"Lone Ranger"},
+        "ytblink": "OLAK5uy_mGMGLVHx_Rjl_lcuolsejPdRjkbEUrOzY"
+    },
+	
+	"125": {
+        "id": "8Cb5eOuidzi2l3oBA093WazikHR",
+        "composer": "James Horner",
+        "titles": {"EN":"How the Grinch Stole Christmas!","FR":"Le Grinch","ES":"El Grinch","DE":"Der Grinch"},
+        "ytblink": "OLAK5uy_kYP-ohuQZQndUEusjtRpuvTLDDc4cTj1k"
+    },
+	
+	"126": {
+        "id": "QBxafkXiqUadYWsVZGhi8qyPT6",
+        "composer": "James Horner",
+        "titles": {"EN":"The Mask of Zorro","FR":"Le Masque de Zorro","ES":"La máscara del Zorro","DE":"Die Maske des Zorro"},
+        "ytblink": "OLAK5uy_k9uNuyYySxq6oIwijR4_ZGI_mdnOnkHZk"
+    },
+	
+	"127": {
+        "id": "6zEZY1htzRos2w0W3T7o7W1WJhp",
+        "composer": "St. Matthew Passion by Johann Sebastian Bach",
+        "titles": {"EN":"Casino","FR":"Casino","ES":"Casino","DE":"Casino"},
+        "ytblink": "PLBYHRWeh1cQ3xf-1jkHRbbuCAe-grbzeV"
+    },
+	
+	"128": {
+        "id": "eWdyYQreja6JGCzqHWXpWHDrrPo",
+        "composer": "Alexandre Desplat",
+        "titles": {"EN":"The Grand Budapest Hotel","FR":"The Grand Budapest Hotel","ES":"El Gran Hotel Budapest","DE":"Grand Budapest Hotel"},
+        "ytblink": "OLAK5uy_lZqjrqmKzohLqda4iOzGQnh7XCgkcCPyA"
+    },
+	
+	"129": {
+        "id": "eteQ3gyMpA0oiWcYX4XoXGry0cB",
+        "composer": "Danny Elfman",
+        "titles": {"EN":"Dark Shadows","FR":"Dark Shadows","ES":"Sombras tenebrosas","DE":"Dark Shadows"},
+        "ytblink": "OLAK5uy_mZt-VszFdv7l-7yS4vxoiYN_8UiWAaKOE"
+    },
+	
+	"130": {
+        "id": "tRNlZbgNCNOpLpbPEz5L8G8A0JN",
+        "composer": "David Julyan",
+        "titles": {"EN":"Le Prestige","FR":"Le Prestige","ES":"El truco final","DE":"Prestige – Die Meister der Magie"},
+        "ytblink": "OLAK5uy_n1sru8u9te3oFad3qD5swTwbONm8c1qYE"
     }
 	
 }
