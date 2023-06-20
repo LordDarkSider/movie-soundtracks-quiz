@@ -904,8 +904,78 @@
 	"130": {
         "id": "tRNlZbgNCNOpLpbPEz5L8G8A0JN",
         "composer": "David Julyan",
-        "titles": {"EN":"Le Prestige","FR":"Le Prestige","ES":"El truco final","DE":"Prestige – Die Meister der Magie"},
+        "titles": {"EN":"The Prestige","FR":"Le Prestige","ES":"El truco final","DE":"Prestige – Die Meister der Magie"},
         "ytblink": "OLAK5uy_n1sru8u9te3oFad3qD5swTwbONm8c1qYE"
+    },
+	
+	"131": {
+        "id": "eifGNCSDuxJeS1loAXil5bIGgvC",
+        "composer": "Danny Elfman",
+        "titles": {"EN":"Justice League","FR":"Justice League","ES":"Liga de la Justicia","DE":"Justice League"},
+        "ytblink": "OLAK5uy_l9d_KrXbaECmfbJBo3_9aX7pgYLvNW7A4"
+    },
+	
+	"132": {
+        "id": "eSKr5Fl1MEC7zpAXaLWBWSBjgJq",
+        "composer": "Michael Nyman",
+        "titles": {"EN":"Gattaca","FR":"Bienvenue à Gattaca","ES":"Gattaca","DE":"Gattaca"},
+        "ytblink": "PLohYzz4btpaTcfcA9sQQ1KTSGHQW-Q-nL"
+    },
+	
+	"133": {
+        "id": "uJtEs9WRqyEREvdkS470n593z03",
+        "composer": "Michel Polnareff",
+        "titles": {"EN":"Delusions of Grandeur","FR":"La Folie des grandeurs","ES":"Delirios de grandeza","DE":"Die dummen Streiche der Reichen"},
+        "ytblink": "OLAK5uy_kGKWnm2wLnuTELt01fKA15fR67_g6UyBQ"
+    },
+	
+	"134": {
+        "id": "xbbXp9px4o8Oe7IbGd0yIbla8mZ",
+        "composer": "Randy Edelman",
+        "titles": {"EN":"The Mask","FR":"The Mask","ES":"La Máscara","DE":"Die Maske"},
+        "ytblink": "PLE031A54F4940053E"
+    },
+	
+	"135": {
+        "id": "uE2Q9RaNBdJbAV1N67LhwCYluK0",
+        "composer": "James Horner",
+        "titles": {"EN":"Braveheart","FR":"Braveheart","ES":"Braveheart","DE":"Braveheart"},
+        "ytblink": "OLAK5uy_mwNYalkCkmFK-N3HDPxj_qoGG2vKATrVM"
+    },
+	
+	"136": {
+        "id": "bUPmtQzrRhzqYySeiMpv7GurAfm",
+        "composer": "John Ottman",
+        "titles": {"EN":"The Usual Suspects","FR":"Usual Suspects","ES":"Sospechosos habituales","DE":"Die üblichen Verdächtigen"},
+        "ytblink": "PLqnnuEVGcRQxLr-ZhnFaszqp937uVnOpZ"
+    },
+	
+	"137": {
+        "id": "kc2gJjebceoFgOQbukzPzP8SXVZ",
+        "composer": "Patrick Doyle",
+        "titles": {"EN":"Murder on the Orient Express","FR":"Le Crime de l'Orient-Express","ES":"Asesinato en el Orient Express","DE":"Mord im Orient Express"},
+        "ytblink": "OLAK5uy_nt6cC6bH_7Tqf1a8OTPHqTUrxMEe5kz5k"
+    },
+	
+	"138": {
+        "id": "4GDy0PHYX3VRXUtwK5ysFbg3kEx",
+        "composer": "On the Nature of Daylight by Max Richter",
+        "titles": {"EN":"Shutter Island","FR":"Shutter Island","ES":"Shutter Island","DE":"Shutter Island"},
+        "ytblink": "PL0DB920FEB574CC6C"
+    },
+	
+	"139": {
+        "id": "aqfeqtqnuCk2zCG7QxVkvm7kf1O",
+        "composer": "Howard Shore",
+        "titles": {"EN":"The Departed","FR":"Les Infiltrés","ES":"Infiltrados","DE":"Departed – Unter Feinden"},
+        "ytblink": "OLAK5uy_kdARltGDaiux35-OZ_IPwEyLAOS_fq1pk"
+    },
+	
+	"140": {
+        "id": "j5mxLNWjUlXUUk8weFBtnF4afIR",
+        "composer": "Nick Glennie-Smith & Hans Zimmer",
+        "titles": {"EN":"The Rock","FR":"Rock","ES":"La Roca","DE":"The Rock – Fels der Entscheidung"},
+        "ytblink": "OLAK5uy_k36_2jCFU1O27267fo-tRmMblhpA5XyPU"
     }
 	
 }
