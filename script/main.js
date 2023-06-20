@@ -171,8 +171,7 @@ function result(num, etat){
     var sol = data.get(num).get('titles').get(language);
     var composer = data.get(num).get('composer');
     
-    if (screen.width<930){solution.innerHTML = ("<img src='"+ico+"'> "+sol+'<br/>('+composer+')');}
-    else {solution.innerHTML = ("<img src='"+ico+"'> "+sol+' ('+composer+')');}
+    solution.innerHTML = ("<img src='"+ico+"'> "+sol+'<br>('+composer+')');
     score_label.innerHTML = ('Score: '+String(Math.round(score)));
     solution.style.color = color;
     link.href= 'https://www.youtube.com/playlist?list=' + data.get(num).get('ytblink');
@@ -185,17 +184,6 @@ function end(){
     if(mode=='mcq'){score_end_label.innerHTML = ('Score: '+String(score)+'/2000')}
 	else if(mode=='normal'){score_end_label.innerHTML = ('Score: '+String(Math.round(score))+'/1000')}
 	else if(mode=='trial'){score_end_label.innerHTML = ('Score: '+String(score))};
-};
-
-function save_score(mode){
-	if (confirm(config_language.get('score_saving').get(language))) {
-		let pseudo = prompt(config_language.get('pseudo').get(language))
-		if (pseudo!=null && pseudo.lenght>0){
-			let best_score = readScores((mode+'Ranking'), pseudo)[0].score;
-			if (score > best_score) {insertScore((mode+'Ranking'), pseudo, score)};
-		};
-	};
-	
 };
 
 function time_trial(){
