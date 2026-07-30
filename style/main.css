@@ -52,6 +52,7 @@ h2{
     padding: 0 20px;
     font-size: 1rem;
     text-align: center;
+    font-family: Lilita One;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
@@ -79,7 +80,14 @@ h2{
 #flag {display:inline-block; margin: auto; vertical-align: middle;}
 #selectlang {display:inline-block; margin: auto; vertical-align: middle; font-size: 1rem;}
 
-#btn_start{display: none;}
+#btn_start{display: none; margin: 3em;}
+
+#player {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
 
 #home {display:inline-block; width: 1.75em; vertical-align: top; margin-right: 1%;}
 #credits {display:inline-block; width: 1.5em; vertical-align: top;}

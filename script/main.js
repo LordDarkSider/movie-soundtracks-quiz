@@ -3,9 +3,12 @@ let game = document.getElementById('game');
 let selectlang = document.getElementById('selectlang');
 let flag = document.getElementById('flag');
 let peparing_info = document.getElementById('prepa_game');
+let btn_start = document.getElementById('btn_start');
 
 var selection = {};
 var player_ready = false;
+var player = null;
+var next_player = null;
 
 
 // Reusable Promise to wait event
@@ -85,13 +88,23 @@ async function prepare_game() {
     await wait_true(() => ytb_api_ready);
     
     let draw = random_draw((gamemode == "mcq") ? 5 : 1);
-    console.log(draw);
 
     let first_response = draw[0]
     
-    let player = create_YTBplayer(first_response['main-theme'], first_response.start);
+    player = create_YTBplayer(first_response['main-theme'], first_response.start);
     await wait_true(() => player_ready);
 
+    peparing_info.style.display = "none";
+    btn_start.style.display = "inline-block";
+}
+
+
+function start_game(){
+    play_music();
+}
+
+
+function play_music(){
     player.mute();
     player.playVideo();
     setTimeout(() => {
@@ -103,9 +116,9 @@ async function prepare_game() {
 
 function create_YTBplayer(videoId, timeStart) {
     let player = new YT.Player('player', {
-        videoId: 'r0sICC8CxRQ',
-        playerVars: {autoplay: 0, controls: 0, playsinline: 1, start: 0},
-        events: {onReady: () => {alert('ok');}}
+        videoId: videoId,
+        playerVars: {autoplay: 0, controls: 0, playsinline: 1, start: timeStart},
+        events: {onReady: () => {player_ready = true;}}
     });
     return player;
 }
