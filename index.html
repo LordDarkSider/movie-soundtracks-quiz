@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Dark Sider"/>
+        <meta name="copyright" content="©2026 Dark Sider All rights reserved." />
+        <meta name="description" content="Guess the movies behind their music"/>
+        <meta name="keywords" content="quiz,soundtrack,music,movies,series,blindtest"/>
+
+        <title>Soundtrack Quiz</title>
+        <link rel="icon" href="images/icon.ico">
+        <link rel="stylesheet" type="text/css" href="style/main.css"/>
+
+    </head>
+
+	
+	<body>
+
+    <div id="main">
+
+        <!-- <img id="home" src="images/home.ico" onclick="home()"> -->
+
+        <!-- <a href="credits.pdf" target="_blank"><img id='credits' src="images/infos.ico"></a> -->
+
+        <h1>Soundtrack<br>Quiz</h1>
+
+        <div id="setup" class="block">
+
+            <h2>Set up your game</h2>
+
+            <form action="" method="get">
+
+                <div class='config' id="config1">
+                    <input type="radio" class="btn_radio" id="btn_mcq" name="gamemode" value="mcq" required/>
+                    <label class="button btn_config1" for="btn_mcq">Multiple choice</label>
+                    <input type="radio" class="btn_radio" id="btn_title" name="gamemode" value="title"/>
+                    <label class="button btn_config1" for="btn_title">Guess full title</label>
+                </div>
+
+                <div class='config' id="config2">
+                    <input type="radio" class="btn_radio" id="btn_10movies" name="scoremode" value="10movies" required/>
+                    <label class="button btn_config2" for="btn_10movies">10 movies</label>
+                    <input type="radio" class="btn_radio" id="btn_20movies" name="scoremode" value="20movies"/>
+                    <label class="button btn_config2" for="btn_20movies">20 movies</label>
+                    <input type="radio" class="btn_radio" id="btn_agnstclock" name="scoremode" value="agnstclock"/>
+                    <label class="button btn_config2" for="btn_agnstclock">Against the clock</label>
+                </div>
+
+                <div class='config' id="config3">
+                    <input type="radio" class="btn_radio" id="btn_maintheme" name="sdtracktype" value="maintheme" required/>
+                    <label class="button btn_config3" for="btn_maintheme">Main Theme</label>
+                    <input type="radio" class="btn_radio" id="btn_random" name="sdtracktype" value="random"/>
+                    <label class="button btn_config3" for="btn_random">Random</label>
+                </div>
+
+                <div id="langconfig">
+                    <img id="flag" src="flags/english.png">
+                    <select id="selectlang" name="lang" data-width="fit" onChange="change_language()" required>
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+
+                <input type="submit" class="button btn_valid" value="OK"/>
+
+            </form>
+
+        </div>
+
+        <div id="game" class="block">
+
+            <h2 id="prepa_game">Preparing game...</h2>
+
+            <button class="valide_button" id="btn_start">START</button>
+
+        </div>
+
+    <!-- <script>if(screen.width<930){location.replace("mobile.html")};</script> -->
+    <script type="text/javascript" src="script/ytb_api_ready.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="script/config.js"></script>
+    <script type="text/javascript" src="script/main.js"></script>
+	
+    </body>
+</html>

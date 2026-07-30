@@ -1,0 +1,137 @@
+@font-face {
+  font-family: Cinema;
+  src: url(fonts/cinema_st.ttf);
+}
+@font-face {
+  font-family: Lilita One;
+  src: url(fonts/LilitaOne-Regular.ttf);
+}
+
+body {
+    background: url("../images/background.png") no-repeat center fixed;
+    background-size: cover;
+    white-space: nowrap;
+    margin: 0;
+    text-align: center;
+    user-select: none;
+    width:100%;
+    font-family: Lilita One;
+}
+
+h1{
+    margin-top: 0.25em;
+    line-height: 1;
+    font-family: Cinema;
+    font-size: 4rem;
+    background: -webkit-linear-gradient(red, goldenrod);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h2{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+#prepa_game{padding: 3rem;}
+
+.block{
+    display: none;
+    width: min-content;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.btn_radio{display: none;}
+.button {
+    display:inline-block;
+    margin: auto;
+    margin: 1em;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+.button:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+.btn_config1{background-color: rgb(125, 0, 0);}
+.btn_radio:checked + .btn_config1 {background-color: rgb(255, 0, 0);}
+.btn_config2{background-color: rgb(0, 125, 0);}
+.btn_radio:checked + .btn_config2 {background-color: rgb(0, 255, 0);}
+.btn_config3{background-color: rgb(0, 0, 125);}
+.btn_radio:checked + .btn_config3 {background-color: rgb(0, 0, 255);}
+.btn_valid{background-color: rgb(218, 165, 32);}
+.btn_valid:active{background-color: rgb(255, 215, 0)}
+
+#langconfig{margin: 1em;}
+#flag {display:inline-block; margin: auto; vertical-align: middle;}
+#selectlang {display:inline-block; margin: auto; vertical-align: middle; font-size: 1rem;}
+
+#btn_start{display: none;}
+
+#home {display:inline-block; width: 1.75em; vertical-align: top; margin-right: 1%;}
+#credits {display:inline-block; width: 1.5em; vertical-align: top;}
+#titre_quiz{display: inline-block; margin-inline:2.5%;}
+
+
+.central{display: inline-block; margin-top: 2em;}
+#central_left{vertical-align: top; margin: 4em; width: 10%}
+#central_right{vertical-align: top; margin: 4em; width: 10%}
+
+#progression {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: fit-content;
+    margin: auto;
+    color: #ffff;
+    border-radius: 10px;
+    background-color: DarkBlue;
+    margin-bottom: 1.5em;
+}
+
+.score {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: fit-content;
+    margin: auto;
+    color: #ffff;
+    border-radius: 10px;
+    background-color: goldenrod;
+    margin-bottom: 2em;
+}
+
+#timer {
+    display: block;
+    padding: 0.5em;
+    font-size: 1.5em;
+    width: fit-content;
+    margin: auto;
+    color: #ffff;
+    border-radius: 10px;
+    background-color: green;
+    margin-bottom: 2em;
+}
+
+#poster{display: block; height: 22.5em; margin: auto;}
+#link{display: block;margin-bottom: 2em;}
+#next_button{display: block;  margin: auto; margin-bottom: 2em;}
+#skip_button{display: block;  margin: auto; margin-bottom: 2em;}
+
+#bloc_entry {margin-top: 2.5em;}
+#bloc_result {margin-top: 2.5em; max-width: 90%;}
+#bloc_end {margin-top: 5em;}
+#solution{display:block; font-size: 20pt; font-family: 'Verdana'; font-weight: bold; margin-inline: auto;  word-break: break-all; width: 90%;}
