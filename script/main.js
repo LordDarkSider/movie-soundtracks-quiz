@@ -2,10 +2,13 @@ let setup = document.getElementById('setup');
 let game = document.getElementById('game');
 let selectlang = document.getElementById('selectlang');
 let flag = document.getElementById('flag');
-let peparing_info = document.getElementById('prepa_game');
+let info_game = document.getElementById('info_game');
 let btn_start = document.getElementById('btn_start');
+let mcq_block = document.getElementById('mcq');
 
 var selection = {};
+var draw = null;
+var newt_draw = null;
 var player_ready = false;
 var player = null;
 var next_player = null;
@@ -39,8 +42,9 @@ if(args[0].startsWith("gamemode") &&
         ['mcq', 'title'].includes(gamemode) && 
         ['10movies', '20movies', 'agnstclock'].includes(scoremode) && 
         ['maintheme', 'random'].includes(sdtracktype) &&
-        ['en', 'fr', 'es', 'de'].includes(lang)
+        ['en-US', 'fr', 'es', 'de'].includes(lang)
     ) {
+        info_game.textContent = "Preparing game...";
         game.style.display = "block";
         random_selection();
     }
@@ -87,19 +91,24 @@ function random_draw(nb_items){
 async function prepare_game() {
     await wait_true(() => ytb_api_ready);
     
-    let draw = random_draw((gamemode == "mcq") ? 5 : 1);
+    draw = random_draw((gamemode == "mcq") ? 5 : 1);
 
     let first_response = draw[0]
     
     player = create_YTBplayer(first_response['main-theme'], first_response.start);
     await wait_true(() => player_ready);
 
-    peparing_info.style.display = "none";
+    info_game.style.display = "none";
     btn_start.style.display = "inline-block";
 }
 
 
 function start_game(){
+    btn_start.style.display = "none";
+    generate_mcq();
+    info_game.textContent = "Guess the movie";
+    info_game.style.display = "block";
+    mcq_block.style.display = "block";
     play_music();
 }
 
@@ -121,6 +130,19 @@ function create_YTBplayer(videoId, timeStart) {
         events: {onReady: () => {player_ready = true;}}
     });
     return player;
+}
+
+
+function generate_mcq(){
+    rdm = Array.from({ length: draw.length }, (_, i) => i);
+    rdm.sort(() => 0.5 - Math.random());
+    rdm.forEach((idx) => {
+        movie = draw[idx];
+        btn_mcq = document.createElement('button');
+        btn_mcq.className = "button btn_mcq";
+        btn_mcq.textContent = movie.title[lang];
+        mcq_block.appendChild(btn_mcq);
+    });
 }
 
 

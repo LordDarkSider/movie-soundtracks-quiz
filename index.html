@@ -59,7 +59,7 @@
                 <div id="langconfig">
                     <img id="flag" src="flags/english.png">
                     <select id="selectlang" name="lang" data-width="fit" onChange="change_language()" required>
-                        <option value="en">English</option>
+                        <option value="en-US">English (US)</option>
                         <option value="fr">Français</option>
                         <option value="es">Español</option>
                         <option value="de">Deutsch</option>
@@ -74,11 +74,13 @@
 
         <div id="game" class="block">
 
-            <h2 id="prepa_game">Preparing game...</h2>
+            <h2 id="info_game"></h2>
 
             <button class="button btn_valid" id="btn_start" onclick="start_game()">START</button>
 
             <div id="player"></div>
+
+            <div id="mcq"></div>
 
         </div>
 

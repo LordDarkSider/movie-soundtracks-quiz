@@ -33,7 +33,7 @@ h2{
     font-size: 1.5rem;
     font-weight: normal;
 }
-#prepa_game{padding: 3rem;}
+#info_game{padding: 2rem;}
 
 .block{
     display: none;
@@ -81,6 +81,8 @@ h2{
 #selectlang {display:inline-block; margin: auto; vertical-align: middle; font-size: 1rem;}
 
 #btn_start{display: none; margin: 3em;}
+#mcq{display: none; margin: 1em;}
+.btn_mcq{display: block; margin: 1em auto; background-color: rgb(128, 0, 128);}
 
 #player {
     position: absolute;
