@@ -5,6 +5,7 @@ let flag = document.getElementById('flag');
 let info_game = document.getElementById('info_game');
 let btn_start = document.getElementById('btn_start');
 let mcq_block = document.getElementById('mcq');
+let timer = document.getElementById('timer');
 
 var selection = {};
 var draw = null;
@@ -110,6 +111,7 @@ function start_game(){
     info_game.style.display = "block";
     mcq_block.style.display = "block";
     play_music();
+    start_timer(30, null);
 }
 
 
@@ -143,6 +145,29 @@ function generate_mcq(){
         btn_mcq.textContent = movie.title[lang];
         mcq_block.appendChild(btn_mcq);
     });
+}
+
+
+function start_timer(duree, callback){
+    var t = duree;
+    var loop = setInterval(frame, 50);
+    timer.innerHTML = duree;
+    timer.style.backgroundColor = "rgb(0, 255, 0)"
+    timer.style.display = "block";
+    function frame() {
+        if (t <= 0) {
+            clearInterval(loop);
+            timer.style.display = "none";
+            callback();
+        } else {
+            t-=0.05;
+            r = Math.floor(255 * (1 - t/duree));
+            g = Math.floor(255 * t/duree);
+            timer.style.backgroundColor = `rgb(${r}, ${g}, 0)`;
+            timer.style.width = t/duree*100 + "%";
+            timer.innerHTML = Math.ceil(t);
+        }
+    }
 }
 
 
