@@ -3,9 +3,11 @@ let game = document.getElementById('game');
 let selectlang = document.getElementById('selectlang');
 let flag = document.getElementById('flag');
 let info_game = document.getElementById('info_game');
-let btn_start = document.getElementById('btn_start');
+let btn_play = document.getElementById('btn_play');
 let mcq_block = document.getElementById('mcq');
 let timer = document.getElementById('timer');
+let poster = document.getElementById('poster');
+let poster_img = document.getElementById('poster_img');
 
 var selection = {};
 var draw = null;
@@ -13,6 +15,9 @@ var newt_draw = null;
 var player_ready = false;
 var player = null;
 var next_player = null;
+var playing = false;
+var t = 0;
+var total_score = 0;
 
 
 // Reusable Promise to wait event
@@ -97,19 +102,26 @@ async function prepare_game() {
     let first_response = draw[0]
     
     player = create_YTBplayer(first_response['main-theme'], first_response.start);
+    poster_img.src = "https://www.themoviedb.org/t/p/w1280" + draw[0].poster[lang];
+    poster_img.alt = draw[0].title[lang];
+    poster_img.title = draw[0].title[lang];
     await wait_true(() => player_ready);
 
     info_game.style.display = "none";
-    btn_start.style.display = "inline-block";
+    btn_play.style.display = "inline-block";
 }
 
 
 function start_game(){
-    btn_start.style.display = "none";
-    generate_mcq();
+    btn_play.style.display = "none";
+    poster.style.display = "none";
+    game.style.minWidth= '30vw';
+    if(gamemode == 'mcq') generate_mcq();
     info_game.textContent = "Guess the movie";
+    info_game.style.color = "white";
     info_game.style.display = "block";
-    mcq_block.style.display = "block";
+    if(gamemode == 'mcq') mcq_block.style.display = "block";
+    playing = true;
     play_music();
     start_timer(30, null);
 }
@@ -121,7 +133,7 @@ function play_music(){
     setTimeout(() => {
         player.unMute();
         player.setVolume(100);
-    }, 300);
+    }, 100);
 }
 
 
@@ -136,30 +148,34 @@ function create_YTBplayer(videoId, timeStart) {
 
 
 function generate_mcq(){
+    mcq_block.innerHTML = ""; // delete old buttons
     rdm = Array.from({ length: draw.length }, (_, i) => i);
     rdm.sort(() => 0.5 - Math.random());
     rdm.forEach((idx) => {
-        movie = draw[idx];
-        btn_mcq = document.createElement('button');
+        const movie = draw[idx];
+        const btn_mcq = document.createElement('button');
         btn_mcq.className = "button btn_mcq";
         btn_mcq.textContent = movie.title[lang];
+        btn_mcq.addEventListener("click", () => result(movie.title[lang]));
         mcq_block.appendChild(btn_mcq);
     });
 }
 
 
-function start_timer(duree, callback){
-    var t = duree;
+function start_timer(duree){
+    t = duree;
     var loop = setInterval(frame, 50);
     timer.innerHTML = duree;
-    timer.style.backgroundColor = "rgb(0, 255, 0)"
+    timer.style.backgroundColor = "rgb(0, 255, 0)";
     timer.style.display = "block";
     function frame() {
-        if (t <= 0) {
+        if (!playing){
             clearInterval(loop);
-            timer.style.display = "none";
-            callback();
-        } else {
+        }
+        else if (t <= 0) {
+            result(null);
+        }
+        else {
             t-=0.05;
             r = Math.floor(255 * (1 - t/duree));
             g = Math.floor(255 * t/duree);
@@ -168,6 +184,25 @@ function start_timer(duree, callback){
             timer.innerHTML = Math.ceil(t);
         }
     }
+}
+
+
+function result(answer){
+    let time_remaining = t;
+    playing = false;
+    timer.style.display = "none";
+    if(gamemode == 'mcq') mcq_block.style.display = "none";
+
+    if(Object.values(draw[0].title).includes(answer)){
+        info_game.textContent = "Correct answer";
+        info_game.style.color = "rgb(0, 200, 0)";
+    }
+    else {
+        info_game.textContent = "Incorrect answer";
+        info_game.style.color = "rgb(255, 0, 0)";
+    }
+
+    poster.style.display = "block";
 }
 
 

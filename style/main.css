@@ -33,6 +33,7 @@ h2{
     color: white;
     font-size: 1.5rem;
     font-weight: normal;
+    margin: 0;
 }
 #info_game{padding: 2rem;}
 
@@ -78,12 +79,39 @@ h2{
 .btn_valid:active{background-color: rgb(255, 215, 0)}
 
 #langconfig{margin: 1em;}
-#flag {display:inline-block; margin: auto; vertical-align: middle;}
-#selectlang {display:inline-block; margin: auto; vertical-align: middle; font-size: 1rem;}
+#flag {
+    display:inline-block;
+    margin: auto;
+    vertical-align: middle;
+}
+#selectlang {
+    display:inline-block;
+    margin: auto;
+    vertical-align: middle;
+    font-size: 1rem;
+}
 
-#btn_start{display: none; margin: 3em;}
-#mcq{display: none; margin: 1em; min-width: 30vw;}
-.btn_mcq{display: block; margin: 1em auto; background-color: rgb(128, 0, 128);}
+#btn_play{
+    display: none;
+    margin: 3em;
+}
+
+#mcq{
+    display: none;
+    margin: 1em;
+}
+.btn_mcq{
+    display: block;
+    margin: 1em auto;
+    background-color: rgb(128, 0, 128);
+}
+
+#poster{
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+}
+#poster_img{width: 100%;}
 
 #player {
     position: absolute;
@@ -138,7 +166,6 @@ h2{
     margin-bottom: 2em;
 }
 
-#poster{display: block; height: 22.5em; margin: auto;}
 #link{display: block;margin-bottom: 2em;}
 #next_button{display: block;  margin: auto; margin-bottom: 2em;}
 #skip_button{display: block;  margin: auto; margin-bottom: 2em;}
