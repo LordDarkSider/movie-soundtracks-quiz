@@ -14,13 +14,15 @@ let score_value = document.getElementById('score_value');
 const mcq_duree = 30;
 var selection = {};
 var draw = null;
-var newt_draw = null;
+var next_draw = null;
 var player_ready = false;
 var player = null;
 var next_player = null;
 var playing = false;
 var t = 0;
 var total_score = 0;
+var nb_tracks = 0;
+var nb_tt_tracks = 0;
 
 
 // Reusable Promise to wait event
@@ -99,15 +101,15 @@ function random_draw(nb_items){
 
 async function prepare_game() {
     await wait_true(() => ytb_api_ready);
-    
-    draw = random_draw((gamemode == "mcq") ? 5 : 1);
 
-    let first_response = draw[0]
+    if(scoremode=="10movies") nb_tt_tracks = 10;
+    else if(scoremode=="20movies") nb_tt_tracks = 20;
     
-    player = create_YTBplayer(first_response['main-theme'], first_response.start);
-    poster_img.src = "https://www.themoviedb.org/t/p/w1280" + draw[0].poster[lang];
-    poster_img.alt = draw[0].title[lang];
-    poster_img.title = draw[0].title[lang];
+    next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
+
+    let first_response = next_draw[0];
+    
+    next_player = create_YTBplayer(first_response['main-theme'], first_response.start);
     await wait_true(() => player_ready);
 
     info_game.style.display = "none";
@@ -115,19 +117,48 @@ async function prepare_game() {
 }
 
 
-function start_game(){
+// Start the first track but also the following tracks
+function play_game(){
+    if(nb_tracks != 0){
+        player.pauseVideo();   // Stop the previous track
+        document.getElementById('player'+nb_tracks).remove();   // Remove player
+    }
+    
+    if(scoremode == "agnstclock" || nb_tracks < nb_tt_tracks){
+        // Shift the variables
+        draw = next_draw;
+        player = next_player;
+    }
+    else return endgame();
+
     btn_play.style.display = "none";
     poster.style.display = "none";
     score_info.style.display = "none";
-    game.style.minWidth= '30vw';
+    //game.style.minWidth= '30vw';
+
+    // Prepare the poster
+    poster_img.src = "https://www.themoviedb.org/t/p/w1280" + draw[0].poster[lang];
+    poster_img.alt = draw[0].title[lang];
+    poster_img.title = draw[0].title[lang];
+    
     if(gamemode == 'mcq') generate_mcq();
     info_game.textContent = "Guess the movie";
     info_game.style.color = "white";
     info_game.style.display = "block";
     if(gamemode == 'mcq') mcq_block.style.display = "block";
+    
+    nb_tracks += 1;
     playing = true;
     play_music();
     if(gamemode == 'mcq') start_timer(mcq_duree);
+
+    // Prepare the next track
+    if(scoremode == "agnstclock" || nb_tracks < nb_tt_tracks){
+        next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
+        let first_response = next_draw[0];
+        player_ready = false;
+        next_player = create_YTBplayer(first_response['main-theme'], first_response.start);
+    }
 }
 
 
@@ -142,10 +173,15 @@ function play_music(){
 
 
 function create_YTBplayer(videoId, timeStart) {
-    let player = new YT.Player('player', {
+    const player_div = document.createElement('div');
+    let id = "player"+(nb_tracks+1);
+    player_div.id = id;
+    player_div.className = "player";
+    game.appendChild(player_div);
+    let player = new YT.Player(id, {
         videoId: videoId,
         playerVars: {autoplay: 0, controls: 0, playsinline: 1, start: timeStart},
-        events: {onReady: () => {player_ready = true;}}
+        events: {onReady: () => {player_ready = true}}
     });
     return player;
 }
@@ -177,7 +213,7 @@ function start_timer(duree){
             clearInterval(loop);
         }
         else if (t <= 0) {
-            result(null);
+            return result(null);
         }
         else {
             t-=0.05;
@@ -191,7 +227,7 @@ function start_timer(duree){
 }
 
 
-function result(answer){
+async function result(answer){
     const time_remaining = t;
     playing = false;
     timer.style.display = "none";
@@ -213,7 +249,7 @@ function result(answer){
     score_info.style.display = "inline-block";
 
     if(correct){
-        const score = (gamemode == 'mcq') ? (correct * 50 + Math.ceil(t/mcq_duree * 50)) : 100;
+        const score = (scoremode == 'agnstclock') ? 100 : (50 + Math.ceil(t/mcq_duree * 50));
         total_score += score;
         // Score increment animation
         const interval = setInterval(() => {
@@ -224,6 +260,7 @@ function result(answer){
         }, 10);
     }
 
+    await wait_true(() => player_ready);
     btn_play.innerHTML = "NEXT";
     btn_play.style.display = "inline-block";
 }
