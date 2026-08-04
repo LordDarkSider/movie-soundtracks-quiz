@@ -93,7 +93,7 @@ h2{
 
 #btn_play{
     display: none;
-    margin: 3em;
+    margin: 1em;
 }
 
 #mcq{
@@ -131,6 +131,14 @@ h2{
     text-align: center;
     overflow: hidden;
     color: white;
+}
+
+#score_info{
+    display: none;
+    color: yellow;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 1em;
 }
 
 #home {display:inline-block; width: 1.75em; vertical-align: top; margin-right: 1%;}

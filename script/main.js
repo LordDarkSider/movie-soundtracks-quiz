@@ -8,7 +8,10 @@ let mcq_block = document.getElementById('mcq');
 let timer = document.getElementById('timer');
 let poster = document.getElementById('poster');
 let poster_img = document.getElementById('poster_img');
+let score_info = document.getElementById('score_info');
+let score_value = document.getElementById('score_value');
 
+const mcq_duree = 30;
 var selection = {};
 var draw = null;
 var newt_draw = null;
@@ -115,6 +118,7 @@ async function prepare_game() {
 function start_game(){
     btn_play.style.display = "none";
     poster.style.display = "none";
+    score_info.style.display = "none";
     game.style.minWidth= '30vw';
     if(gamemode == 'mcq') generate_mcq();
     info_game.textContent = "Guess the movie";
@@ -123,7 +127,7 @@ function start_game(){
     if(gamemode == 'mcq') mcq_block.style.display = "block";
     playing = true;
     play_music();
-    start_timer(30, null);
+    if(gamemode == 'mcq') start_timer(mcq_duree);
 }
 
 
@@ -188,21 +192,40 @@ function start_timer(duree){
 
 
 function result(answer){
-    let time_remaining = t;
+    const time_remaining = t;
     playing = false;
     timer.style.display = "none";
     if(gamemode == 'mcq') mcq_block.style.display = "none";
 
-    if(Object.values(draw[0].title).includes(answer)){
-        info_game.textContent = "Correct answer";
+    const correct = Object.values(draw[0].title).includes(answer);
+
+    if(correct){
+        info_game.textContent = "CORRECT";
         info_game.style.color = "rgb(0, 200, 0)";
     }
     else {
-        info_game.textContent = "Incorrect answer";
+        info_game.textContent = "INCORRECT";
         info_game.style.color = "rgb(255, 0, 0)";
     }
 
     poster.style.display = "block";
+    score_value.innerHTML = total_score;
+    score_info.style.display = "inline-block";
+
+    if(correct){
+        const score = (gamemode == 'mcq') ? (correct * 50 + Math.ceil(t/mcq_duree * 50)) : 100;
+        total_score += score;
+        // Score increment animation
+        const interval = setInterval(() => {
+            let val = parseInt(score_value.innerHTML);
+            val += 1;
+            score_value.innerHTML = val;
+            if (val == total_score) {clearInterval(interval);}
+        }, 10);
+    }
+
+    btn_play.innerHTML = "NEXT";
+    btn_play.style.display = "inline-block";
 }
 
 
