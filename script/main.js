@@ -19,7 +19,7 @@ var player_ready = false;
 var player = null;
 var next_player = null;
 var playing = false;
-var t = 0;
+var endtime = 0;
 var total_score = 0;
 var nb_tracks = 0;
 var nb_tt_tracks = 0;
@@ -134,7 +134,6 @@ function play_game(){
     btn_play.style.display = "none";
     poster.style.display = "none";
     score_info.style.display = "none";
-    //game.style.minWidth= '30vw';
 
     // Prepare the poster
     poster_img.src = "https://www.themoviedb.org/t/p/w1280" + draw[0].poster[lang];
@@ -150,7 +149,6 @@ function play_game(){
     nb_tracks += 1;
     playing = true;
     play_music();
-    if(gamemode == 'mcq') start_timer(mcq_duree);
 
     // Prepare the next track
     if(scoremode == "agnstclock" || nb_tracks < nb_tt_tracks){
@@ -168,6 +166,7 @@ function play_music(){
     setTimeout(() => {
         player.unMute();
         player.setVolume(100);
+        if(gamemode == 'mcq') start_timer(mcq_duree);
     }, 100);
 }
 
@@ -203,32 +202,33 @@ function generate_mcq(){
 
 
 function start_timer(duree){
-    t = duree;
+    endtime = Date.now() + duree * 1000;
     var loop = setInterval(frame, 50);
     timer.innerHTML = duree;
     timer.style.backgroundColor = "rgb(0, 255, 0)";
     timer.style.display = "block";
     function frame() {
+        let t = Date.now();
         if (!playing){
             clearInterval(loop);
         }
-        else if (t <= 0) {
+        else if (t >= endtime) {
             return result(null);
         }
         else {
-            t-=0.05;
-            r = Math.floor(255 * (1 - t/duree));
-            g = Math.floor(255 * t/duree);
+            remaining = (endtime - t)/1000;
+            r = Math.floor(255 * (1 - remaining/duree));
+            g = Math.floor(255 * remaining/duree);
             timer.style.backgroundColor = `rgb(${r}, ${g}, 0)`;
-            timer.style.width = t/duree*100 + "%";
-            timer.innerHTML = Math.ceil(t);
+            timer.style.width = remaining/duree*100 + "%";
+            timer.innerHTML = Math.ceil(remaining);
         }
     }
 }
 
 
 async function result(answer){
-    const time_remaining = t;
+    const time_remaining = (endtime - Date.now()) / 1000;
     playing = false;
     timer.style.display = "none";
     if(gamemode == 'mcq') mcq_block.style.display = "none";
@@ -249,7 +249,7 @@ async function result(answer){
     score_info.style.display = "inline-block";
 
     if(correct){
-        const score = (scoremode == 'agnstclock') ? 100 : (50 + Math.ceil(t/mcq_duree * 50));
+        const score = (scoremode == 'agnstclock') ? 100 : (50 + Math.ceil(time_remaining/mcq_duree * 50));
         total_score += score;
         // Score increment animation
         const interval = setInterval(() => {
