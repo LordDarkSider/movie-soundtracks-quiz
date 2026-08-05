@@ -1,9 +1,11 @@
-const setup = document.getElementById('setup');
-const game = document.getElementById('game');
+const setup_block = document.getElementById('setup');
+const game_block = document.getElementById('game');
+const endgame_block = document.getElementById('endgame');
 const selectlang = document.getElementById('selectlang');
 const flag = document.getElementById('flag');
 const info_game = document.getElementById('info_game');
 const btn_play = document.getElementById('btn_play');
+const btn_replay = document.getElementById('btn_replay');
 const mcq_block = document.getElementById('mcq');
 const title_block = document.getElementById('entry_title');
 const movie_title = document.getElementById('movie_title');
@@ -14,6 +16,8 @@ const poster = document.getElementById('poster');
 const poster_img = document.getElementById('poster_img');
 const score_info = document.getElementById('score_info');
 const score_value = document.getElementById('score_value');
+const final_score_value = document.getElementById('final_score_value');
+const summary_gamemode = document.getElementById('gamemode');
 
 const normal_duree = 30;
 const agnstclock_duree = 300;
@@ -63,17 +67,17 @@ try {
             ['en-US', 'fr', 'es', 'de'].includes(lang)
         ) {
             info_game.textContent = "Preparing game...";
-            game.style.display = "block";
+            game_block.style.display = "block";
             random_selection();
         }
         else {
-            setup.style.display = "block";
+            setup_block.style.display = "block";
         }
     }
     else {
-        setup.style.display = "block";
+        setup_block.style.display = "block";
     }
-} catch (error) {setup.style.display = "block";}
+} catch (error) {setup_block.style.display = "block";}
 
 
 function random_selection(){
@@ -197,7 +201,7 @@ function create_YTBplayer(videoId, timeStart) {
     let id = "player"+(nb_tracks+1);
     player_div.id = id;
     player_div.className = "player";
-    game.appendChild(player_div);
+    game_block.appendChild(player_div);
     let player = new YT.Player(id, {
         videoId: videoId,
         playerVars: {autoplay: 0, controls: 0, playsinline: 1, start: timeStart},
@@ -288,6 +292,20 @@ async function result(answer){
 }
 
 
+function endgame(){
+    playing = false;
+    game_block.style.display = "none";
+    
+    final_score_value.innerHTML = total_score;
+    summary_gamemode.innerHTML = (
+        ((scoremode == '10movies') ? '10 movies' : ((scoremode == '20movies') ? '20 movies' : 'Against the clock')) +
+        ((gamemode == 'mcq') ? ', multiple choice' : ', full title') +
+        ((sdtracktype == 'maintheme') ? ', main theme' : ', random')
+    );
+    endgame_block.style.display = "block";
+}
+
+
 function change_language(){
     var language = selectlang.value;
     flag.src = config_language.get('flagsrc').get(language);
@@ -301,7 +319,9 @@ function suggestions_load(){
 };
 
 
-// Event when valid button for full title is clicked
+// Event buttons clicked
+btn_play.addEventListener("click", () => play_game());
+btn_replay.addEventListener("click", () => location.reload());
 btn_valid_title.addEventListener("click", () => result(movie_title.value));
 
 
