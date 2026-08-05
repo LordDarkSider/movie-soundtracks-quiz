@@ -324,3 +324,12 @@ movie_title.addEventListener("keyup", () => {
     }
     return suggestions_list.innerHTML = options;
 });
+
+
+// Shortcuts
+document.addEventListener("keyup", function(event){
+    // Next
+    if ((event.keyCode === 39 || event.keyCode === 32) & !playing & btn_play.style.display != "none") {play_game();}
+    // Valid title
+    if ((event.keyCode === 13) & playing & movie_title.style.display != "none") {result(movie_title.value);}
+});
