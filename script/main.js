@@ -107,9 +107,11 @@ async function prepare_game() {
     
     next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
 
-    let first_response = next_draw[0];
+    const first_response = next_draw[0];
+    const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
+    const start = (sdtracktype == "maintheme") ? first_response.start : 0;
     
-    next_player = create_YTBplayer(first_response['main-theme'], first_response.start);
+    next_player = create_YTBplayer(videoId, start);
     await wait_true(() => player_ready);
 
     info_game.style.display = "none";
@@ -153,9 +155,9 @@ function play_game(){
     // Prepare the next track
     if(scoremode == "agnstclock" || nb_tracks < nb_tt_tracks){
         next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
-        let first_response = next_draw[0];
-        player_ready = false;
-        next_player = create_YTBplayer(first_response['main-theme'], first_response.start);
+        const first_response = next_draw[0];
+        const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
+        const start = (sdtracktype == "maintheme") ? first_response.start : 0;
     }
 }
 
