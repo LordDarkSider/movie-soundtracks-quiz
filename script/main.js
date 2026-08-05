@@ -11,6 +11,7 @@ const title_block = document.getElementById('entry_title');
 const movie_title = document.getElementById('movie_title');
 const suggestions_list = document.getElementById('suggestions');
 const btn_valid_title = document.getElementById('btn_valid_title');
+const progression = document.getElementById('progression');
 const timer = document.getElementById('timer');
 const poster = document.getElementById('poster');
 const poster_img = document.getElementById('poster_img');
@@ -19,8 +20,8 @@ const score_value = document.getElementById('score_value');
 const final_score_value = document.getElementById('final_score_value');
 const summary_gamemode = document.getElementById('gamemode');
 
-const normal_duree = 30;
-const agnstclock_duree = 300;
+const timer_duree = 30;
+var lives = 3;
 var selection = {};
 var draw = null;
 var next_draw = null;
@@ -62,7 +63,7 @@ try {
         var lang = args[3].substring(5);
         if(
             ['mcq', 'title'].includes(gamemode) && 
-            ['10movies', '20movies', 'agnstclock'].includes(scoremode) && 
+            ['10movies', '20movies', '3-life'].includes(scoremode) && 
             ['maintheme', 'random'].includes(sdtracktype) &&
             ['en-US', 'fr', 'es', 'de'].includes(lang)
         ) {
@@ -82,12 +83,9 @@ try {
 
 function random_selection(){
     let nb_movies = 0;
-    if(scoremode == "10movies"){
-        nb_movies = (gamemode == "mcq") ? 50 : 10;
-    }
-    else if(scoremode == "20movies"){
-        nb_movies = (gamemode == "mcq") ? 100 : 20;
-    }
+    if(scoremode == "10movies") nb_movies = (gamemode == "mcq") ? 50 : 10;
+    else if(scoremode == "20movies") nb_movies = (gamemode == "mcq") ? 100 : 20;
+    else nb_movies = 100;    // 3-Life (TODO: extend selection when it's emptied)
 
     // Loading data LOCAL TEST
     // TODO: change to JSON request for deployment
@@ -141,7 +139,7 @@ function play_game(){
         document.getElementById('player'+nb_tracks).remove();   // Remove player
     }
     
-    if(scoremode == "agnstclock" || nb_tracks < nb_tt_tracks){
+    if(scoremode == "3-life" & lives > 0 || nb_tracks < nb_tt_tracks){
         // Shift the variables
         draw = next_draw;
         player = next_player;
@@ -168,13 +166,18 @@ function play_game(){
         title_block.style.display = "block";
         movie_title.focus();
     }
+
+    if(scoremode == '3-life') progression.innerHTML = " ❤️ ".repeat(lives) + " 🤍 ".repeat(3-lives);
+    else progression.innerHTML = (nb_tracks+1) + '/' + nb_tt_tracks;
+    progression.innerHTML
+    progression.style.display = "block";
     
     nb_tracks += 1;
     playing = true;
     play_music();
 
     // Prepare the next track
-    if(scoremode == "agnstclock" || nb_tracks < nb_tt_tracks){
+    if(scoremode == "3-life" || nb_tracks < nb_tt_tracks){
         next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
         const first_response = next_draw[0];
         const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
@@ -191,7 +194,7 @@ function play_music(){
     setTimeout(() => {
         player.unMute();
         player.setVolume(100);
-        start_timer((scoremode == "agnstclock") ? agnstclock_duree : normal_duree);
+        start_timer(timer_duree);
     }, 100);
 }
 
@@ -268,6 +271,10 @@ async function result(answer){
     else {
         info_game.textContent = "INCORRECT";
         info_game.style.color = "rgb(255, 0, 0)";
+        if(scoremode == '3-life') {
+            lives--;
+            progression.innerHTML = " ❤️ ".repeat(lives) + " 🤍 ".repeat(3-lives);
+        };
     }
 
     poster.style.display = "block";
@@ -275,7 +282,7 @@ async function result(answer){
     score_info.style.display = "inline-block";
 
     if(correct){
-        const score = (scoremode == 'agnstclock') ? 100 : (50 + Math.ceil(time_remaining/normal_duree * 50));
+        const score = 50 + Math.ceil(time_remaining/timer_duree * 50);
         total_score += score;
         // Score increment animation
         const interval = setInterval(() => {
@@ -298,7 +305,7 @@ function endgame(){
     
     final_score_value.innerHTML = total_score;
     summary_gamemode.innerHTML = (
-        ((scoremode == '10movies') ? '10 movies' : ((scoremode == '20movies') ? '20 movies' : 'Against the clock')) +
+        ((scoremode == '10movies') ? '10 movies' : ((scoremode == '20movies') ? '20 movies' : '3-Life')) +
         ((gamemode == 'mcq') ? ', multiple choice' : ', full title') +
         ((sdtracktype == 'maintheme') ? ', main theme' : ', random')
     );
