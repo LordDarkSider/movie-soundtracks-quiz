@@ -184,7 +184,7 @@ function play_game(){
         const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
         const start = (sdtracktype == "maintheme") ? first_response.start : 0;
         player_ready = false;
-        next_player = create_YTBplayer(first_response['main-theme'], first_response.start);
+        next_player = create_YTBplayer(videoId, start);
     }
 }
 
