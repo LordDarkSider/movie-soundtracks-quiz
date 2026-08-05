@@ -1,6 +1,7 @@
 const setup_block = document.getElementById('setup');
 const game_block = document.getElementById('game');
 const endgame_block = document.getElementById('endgame');
+const btn_home = document.getElementById('btn_home');
 const selectlang = document.getElementById('selectlang');
 const flag = document.getElementById('flag');
 const info_game = document.getElementById('info_game');
@@ -330,6 +331,7 @@ function suggestions_load(){
 btn_play.addEventListener("click", () => play_game());
 btn_replay.addEventListener("click", () => location.reload());
 btn_valid_title.addEventListener("click", () => result(movie_title.value));
+btn_home.addEventListener("click", () => window.location = window.location.href.split("?")[0]);
 
 
 // Movie title suggestions

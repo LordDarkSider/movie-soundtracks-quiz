@@ -189,6 +189,12 @@ h2{
     margin: 1em;
 }
 
-#home {display:inline-block; width: 1.75em; vertical-align: top; margin-right: 1%;}
+#btn_home{
+    display: block;
+    position: absolute;
+    top: 1%;
+    left: 0.5%;
+    width: 1.75em;
+}
 
 #link{display: block;margin-bottom: 2em;}
