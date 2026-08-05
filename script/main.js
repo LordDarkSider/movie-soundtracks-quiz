@@ -1,17 +1,22 @@
-let setup = document.getElementById('setup');
-let game = document.getElementById('game');
-let selectlang = document.getElementById('selectlang');
-let flag = document.getElementById('flag');
-let info_game = document.getElementById('info_game');
-let btn_play = document.getElementById('btn_play');
-let mcq_block = document.getElementById('mcq');
-let timer = document.getElementById('timer');
-let poster = document.getElementById('poster');
-let poster_img = document.getElementById('poster_img');
-let score_info = document.getElementById('score_info');
-let score_value = document.getElementById('score_value');
+const setup = document.getElementById('setup');
+const game = document.getElementById('game');
+const selectlang = document.getElementById('selectlang');
+const flag = document.getElementById('flag');
+const info_game = document.getElementById('info_game');
+const btn_play = document.getElementById('btn_play');
+const mcq_block = document.getElementById('mcq');
+const title_block = document.getElementById('entry_title');
+const movie_title = document.getElementById('movie_title');
+const suggestions_list = document.getElementById('suggestions');
+const btn_valid_title = document.getElementById('btn_valid_title');
+const timer = document.getElementById('timer');
+const poster = document.getElementById('poster');
+const poster_img = document.getElementById('poster_img');
+const score_info = document.getElementById('score_info');
+const score_value = document.getElementById('score_value');
 
-const mcq_duree = 30;
+const normal_duree = 30;
+const agnstclock_duree = 300;
 var selection = {};
 var draw = null;
 var next_draw = null;
@@ -23,6 +28,7 @@ var endtime = 0;
 var total_score = 0;
 var nb_tracks = 0;
 var nb_tt_tracks = 0;
+var suggestions = [];
 
 
 // Reusable Promise to wait event
@@ -40,32 +46,34 @@ const wait_true = (variableCallback, intervalle = 100) => {
 
 // Check if new game has been requested
 let args = location.search.substring(1).split("&")
-if(args[0].startsWith("gamemode") && 
-   args[1].startsWith("scoremode") && 
-   args[2].startsWith("sdtracktype") && 
-   args[3].startsWith("lang")
-) {
-    var gamemode = args[0].substring(9);
-    var scoremode = args[1].substring(10);
-    var sdtracktype = args[2].substring(12);
-    var lang = args[3].substring(5);
-    if(
-        ['mcq', 'title'].includes(gamemode) && 
-        ['10movies', '20movies', 'agnstclock'].includes(scoremode) && 
-        ['maintheme', 'random'].includes(sdtracktype) &&
-        ['en-US', 'fr', 'es', 'de'].includes(lang)
+try {
+    if(args[0].startsWith("gamemode") && 
+    args[1].startsWith("scoremode") && 
+    args[2].startsWith("sdtracktype") && 
+    args[3].startsWith("lang")
     ) {
-        info_game.textContent = "Preparing game...";
-        game.style.display = "block";
-        random_selection();
+        var gamemode = args[0].substring(9);
+        var scoremode = args[1].substring(10);
+        var sdtracktype = args[2].substring(12);
+        var lang = args[3].substring(5);
+        if(
+            ['mcq', 'title'].includes(gamemode) && 
+            ['10movies', '20movies', 'agnstclock'].includes(scoremode) && 
+            ['maintheme', 'random'].includes(sdtracktype) &&
+            ['en-US', 'fr', 'es', 'de'].includes(lang)
+        ) {
+            info_game.textContent = "Preparing game...";
+            game.style.display = "block";
+            random_selection();
+        }
+        else {
+            setup.style.display = "block";
+        }
     }
     else {
         setup.style.display = "block";
     }
-}
-else {
-    setup.style.display = "block";
-}
+} catch (error) {setup.style.display = "block";}
 
 
 function random_selection(){
@@ -77,7 +85,8 @@ function random_selection(){
         nb_movies = (gamemode == "mcq") ? 100 : 20;
     }
 
-    // Loading data LOCAL TEST (change to JSON request for deployment)
+    // Loading data LOCAL TEST
+    // TODO: change to JSON request for deployment
     let script = document.createElement('script');
     script.src = "data/movies_data.js";
     script.type = 'text/javascript';
@@ -100,7 +109,7 @@ function random_draw(nb_items){
 
 
 async function prepare_game() {
-    await wait_true(() => ytb_api_ready);
+    if(gamemode == "title") suggestions_load();
 
     if(scoremode=="10movies") nb_tt_tracks = 10;
     else if(scoremode=="20movies") nb_tt_tracks = 20;
@@ -110,6 +119,8 @@ async function prepare_game() {
     const first_response = next_draw[0];
     const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
     const start = (sdtracktype == "maintheme") ? first_response.start : 0;
+    
+    await wait_true(() => ytb_api_ready);
     
     next_player = create_YTBplayer(videoId, start);
     await wait_true(() => player_ready);
@@ -147,6 +158,12 @@ function play_game(){
     info_game.style.color = "white";
     info_game.style.display = "block";
     if(gamemode == 'mcq') mcq_block.style.display = "block";
+    else {
+        movie_title.value = "";
+        suggestions_list.innerHTML = "";
+        title_block.style.display = "block";
+        movie_title.focus();
+    }
     
     nb_tracks += 1;
     playing = true;
@@ -158,6 +175,8 @@ function play_game(){
         const first_response = next_draw[0];
         const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
         const start = (sdtracktype == "maintheme") ? first_response.start : 0;
+        player_ready = false;
+        next_player = create_YTBplayer(first_response['main-theme'], first_response.start);
     }
 }
 
@@ -168,7 +187,7 @@ function play_music(){
     setTimeout(() => {
         player.unMute();
         player.setVolume(100);
-        if(gamemode == 'mcq') start_timer(mcq_duree);
+        start_timer((scoremode == "agnstclock") ? agnstclock_duree : normal_duree);
     }, 100);
 }
 
@@ -234,6 +253,7 @@ async function result(answer){
     playing = false;
     timer.style.display = "none";
     if(gamemode == 'mcq') mcq_block.style.display = "none";
+    else title_block.style.display = "none";
 
     const correct = Object.values(draw[0].title).includes(answer);
 
@@ -251,7 +271,7 @@ async function result(answer){
     score_info.style.display = "inline-block";
 
     if(correct){
-        const score = (scoremode == 'agnstclock') ? 100 : (50 + Math.ceil(time_remaining/mcq_duree * 50));
+        const score = (scoremode == 'agnstclock') ? 100 : (50 + Math.ceil(time_remaining/normal_duree * 50));
         total_score += score;
         // Score increment animation
         const interval = setInterval(() => {
@@ -272,3 +292,35 @@ function change_language(){
     var language = selectlang.value;
     flag.src = config_language.get('flagsrc').get(language);
 };
+
+
+function suggestions_load(){
+    suggestions = [];
+    // TODO: change to JSON request for deployment
+    Object.values(data).forEach((movie) => suggestions.push(movie['title'][lang]));
+};
+
+
+// Event when valid button for full title is clicked
+btn_valid_title.addEventListener("click", () => result(movie_title.value));
+
+
+// Movie title suggestions
+movie_title.addEventListener("keyup", () => {
+    const value = movie_title.value.toLowerCase();
+    let options = '';
+    let additional = [];
+    let nb = 0;
+    if (value.length >= 2){
+        suggestions.forEach((title) => {
+            if(title.toLowerCase().startsWith(value)) {
+                options += '<option value="'+title+'"/>';
+                nb++;
+            }
+            else if(title.toLowerCase().includes(value)) additional.push(title);
+            if(nb==6) return suggestions_list.innerHTML = options;
+        })
+        for(let i = nb; i < 6; i++){options += '<option value="'+additional.shift()+'"/>';}
+    }
+    return suggestions_list.innerHTML = options;
+});
