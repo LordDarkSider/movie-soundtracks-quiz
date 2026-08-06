@@ -199,7 +199,7 @@ function play_music(){
         player.setVolume(100);
         start_timer(timer_duree);
     }, 100);
-    navigator.mediaSession.metadata = null;
+    navigator.mediaSession.metadata = null; // not working because YouTube updates metadata continuously
 }
 
 
@@ -212,10 +212,7 @@ function create_YTBplayer(videoId, timeStart) {
     let player = new YT.Player(id, {
         videoId: videoId,
         playerVars: {autoplay: 0, controls: 0, playsinline: 1, start: timeStart},
-        events: {onReady: (event) => {
-            event.target.setPlaybackQuality("tiny");
-            player_ready = true;
-        }}
+        events: {onReady: () => {player_ready = true;}}
     });
     return player;
 }

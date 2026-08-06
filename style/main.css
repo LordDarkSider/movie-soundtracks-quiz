@@ -208,6 +208,7 @@ h2{
         background: url("../images/background mobile.png") no-repeat center fixed;
         background-size: cover;
     }
+    #main{width: 100%;}
     #btn_home{
         position: static;
         margin: 1em auto;
