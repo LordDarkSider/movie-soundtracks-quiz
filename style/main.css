@@ -30,7 +30,8 @@ h1{
     margin: 0.25em 0;
     line-height: 1;
     font-family: Cinema;
-    font-size: 3.5rem;
+    font-size: 3.5em;
+    padding-inline: 0.5em;
     background: -webkit-linear-gradient(red, goldenrod);
     -webkit-background-clip: text;
             background-clip: text;
@@ -195,6 +196,19 @@ h2{
     top: 1%;
     left: 0.5%;
     width: 1.75em;
+    cursor: pointer;
 }
 
 #link{display: block;margin-bottom: 2em;}
+
+
+/* Mobile version */
+@media (max-width: 768px) {
+    body{
+        background: url("../images/background mobile.png") no-repeat center fixed;
+    }
+    #btn_home{
+        position: static;
+        margin: 1em auto;
+    }
+}
