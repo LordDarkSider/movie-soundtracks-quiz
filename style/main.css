@@ -30,7 +30,7 @@ h1{
     margin: 0.25em 0;
     line-height: 1;
     font-family: Cinema;
-    font-size: 3.5em;
+    font-size: clamp(2rem, 8vw, 3.5rem);
     padding-inline: 0.5em;
     background: -webkit-linear-gradient(red, goldenrod);
     -webkit-background-clip: text;
@@ -168,6 +168,15 @@ h2{
     border-radius: 10px;
 }
 
+#ytb_link{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+#ytb_link img{width: 90%;}
+
 #score_info{
     display: none;
     color: yellow;
@@ -208,7 +217,7 @@ h2{
         background: url("../images/background mobile.png") no-repeat center fixed;
         background-size: cover;
     }
-    h1{font-size: 2.5rem;}
+    /*h1{font-size: 2.5rem;}*/
     #btn_home{
         position: static;
         margin: 1em auto;

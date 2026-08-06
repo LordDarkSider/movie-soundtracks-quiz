@@ -20,6 +20,7 @@ const score_info = document.getElementById('score_info');
 const score_value = document.getElementById('score_value');
 const final_score_value = document.getElementById('final_score_value');
 const summary_gamemode = document.getElementById('gamemode');
+const ytb_link = document.getElementById('ytb_link');
 
 const timer_duree = 30;
 var lives = 3;
@@ -35,6 +36,8 @@ var total_score = 0;
 var nb_tracks = 0;
 var nb_tt_tracks = 0;
 var suggestions = [];
+var videoId = null;
+var playlistId = null;
 
 const gong_effect = new Audio('audio/gong effect.mp3');
 
@@ -122,8 +125,9 @@ async function prepare_game() {
     next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
 
     const first_response = next_draw[0];
-    const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
+    videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
     const start = (sdtracktype == "maintheme") ? first_response.start : 0;
+    playlistId = first_response['playlist'];
     
     await wait_true(() => ytb_api_ready);
     
@@ -152,6 +156,8 @@ function play_game(){
     btn_play.style.display = "none";
     poster.style.display = "none";
     score_info.style.display = "none";
+    ytb_link.style.display = "none";
+    ytb_link.href = "https://www.youtube.com/watch?v=" + videoId + (playlistId != '' ? ("&list="+playlistId) : "");
 
     // Prepare the poster
     poster_img.src = "https://www.themoviedb.org/t/p/w1280" + draw[0].poster[lang];
@@ -183,8 +189,9 @@ function play_game(){
     if(scoremode == "3-life" || nb_tracks < nb_tt_tracks){
         next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
         const first_response = next_draw[0];
-        const videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
+        videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
         const start = (sdtracktype == "maintheme") ? first_response.start : 0;
+        playlistId = first_response['playlist'];
         player_ready = false;
         next_player = create_YTBplayer(videoId, start);
     }
@@ -284,6 +291,7 @@ async function result(answer){
     poster.style.display = "block";
     score_value.innerHTML = total_score;
     score_info.style.display = "inline-block";
+    ytb_link.style.display = "block";
 
     if(correct){
         const score = 50 + Math.ceil(time_remaining/timer_duree * 50);
