@@ -206,6 +206,7 @@ h2{
 @media (max-width: 768px) {
     body{
         background: url("../images/background mobile.png") no-repeat center fixed;
+        background-size: cover;
     }
     #btn_home{
         position: static;
