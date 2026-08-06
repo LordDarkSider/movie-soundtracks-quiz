@@ -36,6 +36,8 @@ var nb_tracks = 0;
 var nb_tt_tracks = 0;
 var suggestions = [];
 
+const gong_effect = new Audio('audio/gong effect.mp3');
+
 
 // Reusable Promise to wait event
 const wait_true = (variableCallback, intervalle = 100) => {
@@ -303,6 +305,7 @@ async function result(answer){
 function endgame(){
     playing = false;
     game_block.style.display = "none";
+    gong_effect.play();
     
     final_score_value.innerHTML = total_score;
     summary_gamemode.innerHTML = (
