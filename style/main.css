@@ -22,7 +22,7 @@ body {
     display: grid;
     place-items: center;
     margin: 0 auto;
-    width: min-content;
+    width: fit-content;
     max-width: 100%;
 }
 
@@ -51,7 +51,6 @@ h2{
     position: relative;
     background-color: rgba(0, 0, 0, 0.5);
     width: 90%;
-    min-width: min-content;
     border-radius: 10px;
 }
 
@@ -221,6 +220,8 @@ h2{
         background-size: cover;
     }
     /*h1{font-size: 2.5rem;}*/
+    #main {width: 100%;}
+    .block {width: 95%;}
     #btn_home{
         position: static;
         margin: 1em auto;
