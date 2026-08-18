@@ -61,13 +61,14 @@ h2{
     margin: 1em;
     border: 0;
     line-height: 2.5;
-    padding: 0 20px;
+    padding: 0 1.25em;
     font-size: 1rem;
     text-align: center;
     font-family: Lilita One;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
+    cursor: pointer;
     background-image: linear-gradient(to top left,
                                     rgba(0, 0, 0, .2),
                                     rgba(0, 0, 0, .2) 30%,
@@ -99,6 +100,7 @@ h2{
     margin: auto;
     vertical-align: middle;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 #btn_play{
