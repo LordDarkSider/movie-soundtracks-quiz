@@ -62,7 +62,7 @@ h2{
     border: 0;
     line-height: 2.5;
     padding: 0 1em;
-    font-size: 1rem;
+    font-size: 1em;
     text-align: center;
     font-family: Lilita One;
     color: #fff;
@@ -218,6 +218,7 @@ h2{
     body{
         background: url("../images/background mobile.png") no-repeat center fixed;
         background-size: cover;
+        white-space: normal;
     }
     /*h1{font-size: 2.5rem;}*/
     #main {
@@ -229,7 +230,9 @@ h2{
         min-width: 0;
         box-sizing: border-box;
     }
-    .button{margin-inline: 2vw;}
+    .button{
+        font-size: 3vw;
+    }
     #btn_home{
         position: static;
         margin: 1em auto;
