@@ -125,7 +125,7 @@ async function prepare_game() {
     next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
 
     const first_response = next_draw[0];
-    videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
+    videoId = (sdtracktype == "maintheme" || first_response['playlist'] == "") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
     const start = (sdtracktype == "maintheme") ? first_response.start : 0;
     playlistId = first_response['playlist'];
     
@@ -189,7 +189,7 @@ function play_game(){
     if(scoremode == "3-life" || nb_tracks < nb_tt_tracks){
         next_draw = random_draw((gamemode == "mcq") ? 5 : 1);
         const first_response = next_draw[0];
-        videoId = (sdtracktype == "maintheme") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
+        videoId = (sdtracktype == "maintheme" || first_response['playlist'] == "") ? first_response['main-theme'] : first_response['playlist-videos'][Math.floor(Math.random() * first_response['playlist-videos'].length)];
         const start = (sdtracktype == "maintheme") ? first_response.start : 0;
         playlistId = first_response['playlist'];
         player_ready = false;
