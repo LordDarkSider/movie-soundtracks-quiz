@@ -229,6 +229,7 @@ h2{
         min-width: 0;
         box-sizing: border-box;
     }
+    .button{margin-inline: 2vw;}
     #btn_home{
         position: static;
         margin: 1em auto;
