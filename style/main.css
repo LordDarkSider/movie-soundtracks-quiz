@@ -23,6 +23,7 @@ body {
     place-items: center;
     margin: 0 auto;
     width: min-content;
+    max-width: 100%;
 }
 
 h1{
