@@ -218,7 +218,6 @@ h2{
     body{
         background: url("../images/background mobile.png") no-repeat center fixed;
         background-size: cover;
-        white-space: normal;
     }
     /*h1{font-size: 2.5rem;}*/
     #main {
@@ -231,7 +230,7 @@ h2{
         box-sizing: border-box;
     }
     .button{
-        font-size: 3vw;
+        font-size: 4vw;
     }
     #btn_home{
         position: static;
